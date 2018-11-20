@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "starter-kits/*"
+  ],
+  "scripts": {
+    "release": "lerna publish",
+    "test": "lerna run test",
+    "commit": "git-cz"
+  },
+  "devDependencies": {
+    "cz-lerna-changelog": "2.0.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "lerna": "^3.4.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-lerna-changelog"
+    }
+  },
+  "name": "malmo"
+}

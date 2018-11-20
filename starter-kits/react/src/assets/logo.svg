@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="124.137" height="43.4" viewBox="0 0 124.137 43.4">
+  <defs>
+    <linearGradient id="a" data-name="Sfumatura senza nome 70" x1="0.73" y1="22.243" x2="124.867" y2="22.243" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#004a5f"/>
+      <stop offset="0.085" stop-color="#025068"/>
+      <stop offset="0.225" stop-color="#096282"/>
+      <stop offset="0.403" stop-color="#137eab"/>
+      <stop offset="0.567" stop-color="#1e9cd7"/>
+      <stop offset="0.865" stop-color="#0075be"/>
+      <stop offset="0.994" stop-color="#005b97"/>
+    </linearGradient>
+  </defs>
+  <title>logo</title>
+  <path d="M82.167,43.243v-42h17v42m-8.5-42V31.377M74.68,43.243H87.167m7,0h13m-100.737,0v-42h17v42m-8.5-42V31.377M1.43,43.243h10m7,0h10m3.25,0v-42h17v42m-17-21h17m-22,21h10m7,0h10m70.487,0v-42h-17v42Zm-65.487-42v42m-5,0h21V31.377m-11-30.134h-10" transform="translate(-0.73 -0.543)" fill="none" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.4" stroke="url(#a)"/>
+</svg>

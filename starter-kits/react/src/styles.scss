@@ -1,0 +1,39 @@
+:root {
+  --padding: 16px;
+  --v-margin: 0px;
+}
+
+* {
+  margin: 0;
+  padding: var(--padding);
+  &:not(:first-child) {
+    margin: var(--v-margin) 0;
+  }
+}
+
+body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  font-size: 11px;
+  max-width: 640px;
+}
+
+h1,
+h2 {
+  font-weight: normal;
+}
+
+p {
+  color: darkgray;
+}
+
+pre {
+  background: #efefef;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    --padding: 8px;
+    --v-margin: 10px;
+  }
+}

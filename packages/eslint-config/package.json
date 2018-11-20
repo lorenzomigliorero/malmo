@@ -1,0 +1,15 @@
+{
+  "name": "@malmo/eslint-config",
+  "version": "1.0.0",
+  "description": "Eslint configuration for malmo based applications",
+  "main": "index.js",
+  "author": "Lorenzo Migliorero <lorenzomigliorero@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "eslint-import-resolver-alias": "^1.1.1",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}

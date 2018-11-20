@@ -1,0 +1,73 @@
+{
+  "name": "@malmo/cli",
+  "version": "1.0.0",
+  "description": "A cli interface to build Javascript applications with zero configuration.",
+  "bin": {
+    "malmo": "./bin/malmo.js"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll --verbose=false"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lorenzomigliorero/malmo"
+  },
+  "author": "Lorenzo Migliorero <lorenzomigliorero@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.1.6",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-transform-async-to-generator": "^7.1.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.6",
+    "@malmo/cli-utils": "^1.0.0",
+    "app-root-path": "^2.1.0",
+    "babel-loader": "^8.0.4",
+    "chalk": "^2.4.1",
+    "command-line-usage": "^5.0.5",
+    "cookie-parser": "^1.4.3",
+    "css-hot-loader": "^1.4.2",
+    "css-loader": "^1.0.1",
+    "edit-json-file": "^1.2.0",
+    "ejs-loader": "^0.3.1",
+    "express": "^4.16.4",
+    "express-no-favicons": "0.0.1",
+    "file-loader": "^1.1.11",
+    "fs-extra": "^7.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "inquirer": "^5.2.0",
+    "ip": "^1.1.5",
+    "lodash": "^4.17.11",
+    "mini-css-extract-plugin": "^0.4.4",
+    "modernizr": "^3.6.0",
+    "module-alias": "^2.1.0",
+    "node-require-alias": "^1.0.1",
+    "node-sass": "^4.10.0",
+    "npm-node-utils": "^1.5.3",
+    "ora": "^2.1.0",
+    "postcss-loader": "^2.1.6",
+    "rimraf": "^2.6.2",
+    "sass-loader": "^7.1.0",
+    "uglifyjs-webpack-plugin": "^1.3.0",
+    "webpack": "^4.25.1",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-hot-middleware": "^2.24.3",
+    "webpack-hot-server-middleware": "^0.5.0",
+    "webpack-merge": "^4.1.4",
+    "webpack-modernizr-loader": "^4.0.1"
+  },
+  "devDependencies": {
+    "bdd-stdin": "^0.2.0",
+    "jest": "^23.6.0",
+    "jest-environment-node": "^23.4.0",
+    "mock-fs": "^4.7.0"
+  }
+}

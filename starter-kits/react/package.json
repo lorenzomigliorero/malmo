@@ -1,0 +1,22 @@
+{
+  "name": "@malmo/react-starter-kit",
+  "version": "1.0.0",
+  "description": "A @malmo starter-kit for build React web applications",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lorenzomigliorero/malmo"
+  },
+  "keywords": [],
+  "author": "Lorenzo Migliorero <lorenzomigliorero@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  }
+}

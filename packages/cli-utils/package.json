@@ -1,0 +1,29 @@
+{
+  "name": "@malmo/cli-utils",
+  "version": "1.0.0",
+  "description": "A set of utilities used by @malmo-cli",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lorenzomigliorero/malmo"
+  },
+  "keywords": [],
+  "author": "Lorenzo Migliorero <lorenzomigliorero@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "cli-table2": "^0.2.0",
+    "command-line-args": "^5.0.2",
+    "exception-formatter": "^1.0.7",
+    "global-dirs": "^0.1.1",
+    "lodash": "^4.17.11",
+    "npm-node-utils": "^1.5.3",
+    "opener": "^1.5.1",
+    "portfinder": "^1.0.19",
+    "webpack-format-messages": "^2.0.3",
+    "webpack-merge": "^4.1.4"
+  }
+}
