@@ -22,8 +22,8 @@
     "react-dom": "^16.6.3"
   },
   "peerDependencies": {
+    "@malmo/eslint-config": "^1.0.0",
     "eslint": "^4.19.1 || ^5.3.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "@malmo/eslint-config": "^1.0.0"
+    "eslint-config-airbnb": "^17.1.0"
   }
 }

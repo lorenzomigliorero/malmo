@@ -15,6 +15,6 @@
     "react": "^16.6.3"
   },
   "dependencies": {
-    "@malmo/welcome-styles": "1.0.0"
+    "@malmo/welcome-styles": "^1.0.0"
   }
 }
