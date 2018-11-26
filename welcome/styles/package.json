@@ -1,0 +1,11 @@
+{
+  "name": "@malmo/welcome-styles",
+  "version": "1.0.0",
+  "description": "Styles for @malmo welcome component",
+  "main": "index.css",
+  "author": "Lorenzo Migliorero <lorenzomigliorero@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

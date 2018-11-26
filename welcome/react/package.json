@@ -1,0 +1,20 @@
+{
+  "name": "@malmo/welcome-react",
+  "version": "1.0.0",
+  "description": "A presentational component for @malmo React Starter Kits",
+  "main": "index.jsx",
+  "author": "Lorenzo Migliorero <lorenzomigliorero@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "eslint": "^4.19.1 || ^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3"
+  },
+  "dependencies": {
+    "@malmo/welcome-styles": "1.0.0"
+  }
+}
