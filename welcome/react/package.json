@@ -1,6 +1,6 @@
 {
   "name": "@malmo/welcome-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A presentational component for @malmo React Starter Kits",
   "main": "index.jsx",
   "author": "Lorenzo Migliorero <lorenzomigliorero@gmail.com>",
@@ -15,6 +15,6 @@
     "react": "^16.6.3"
   },
   "dependencies": {
-    "@malmo/welcome-styles": "1.0.0"
+    "@malmo/welcome-styles": "^1.0.1"
   }
 }

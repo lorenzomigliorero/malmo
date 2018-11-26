@@ -1,6 +1,6 @@
 {
   "name": "@malmo/eslint-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Eslint configuration for malmo based applications",
   "main": "index.js",
   "author": "Lorenzo Migliorero <lorenzomigliorero@gmail.com>",
