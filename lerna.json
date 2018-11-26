@@ -6,7 +6,8 @@
   },
   "packages": [
     "packages/*",
-    "starter-kits/*"
+    "starter-kits/*",
+    "welcome/*"
   ],
   "npmClient": "yarn",
   "useWorkspaces": true,
