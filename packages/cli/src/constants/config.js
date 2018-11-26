@@ -6,7 +6,6 @@ module.exports = {
 };
 
 module.exports.aliasDependencies = [
-  '@babel/core',
   'express',
   'html-webpack-plugin',
   'mini-css-extract-plugin',
