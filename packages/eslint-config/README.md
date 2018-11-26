@@ -1,5 +1,5 @@
 # @malmo/eslint-config
 
-## Eslint configuration used on @malmo/cli application
+## Eslint configuration used on @malmo application
 
 ...TODO...
