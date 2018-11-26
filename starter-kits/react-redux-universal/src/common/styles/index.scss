@@ -1,0 +1,27 @@
+:root {
+  --primary-color: rgb(0, 104, 255)
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 16px;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2 {
+  font-weight: normal;
+  color: var(--primary-color);
+}
+
+a {
+  color: currentColor;
+}

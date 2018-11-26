@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+}
+
+.item {
+  display: flex;
+  padding: 16px 0px;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  &:not(.active) {
+    box-shadow: inset 0 -1px 0 rgba(black, 0.05);
+  }
+}
+
+.active {
+  background: var(--primary-color);
+  color: white;
+}
