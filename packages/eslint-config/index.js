@@ -1,27 +1,14 @@
-const { execSync } = require('child_process');
-
-const config = execSync('malmo config').toString();
-const {
-  malmoCliRoot,
-  common,
-} = JSON.parse(config);
-
-const { dependencies } = require(`${malmoCliRoot}/package.json`);
-
 module.exports = {
+  plugins: ['import'],
   settings: {
-    'import/resolver': {
-      [require.resolve('eslint-import-resolver-alias')]: {
-        map: [
-          ['@', common],
-        ],
-        extensions: [
-          '.js',
-          '.jsx',
-          '.scss',
-        ],
-      },
-    },
-    'import/core-modules': Object.keys(dependencies),
+    'import/core-modules': [
+      'express',
+      'html-webpack-plugin',
+      'mini-css-extract-plugin',
+      'uglifyjs-webpack-plugin',
+      'webpack',
+      'webpack-merge',
+    ],
   },
+  rules: { 'import/no-unresolved': 2 },
 };
