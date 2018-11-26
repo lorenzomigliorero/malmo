@@ -1,18 +1,18 @@
-/* global clientStats */
+/* global CONSTANTS clientStats */
 import path from 'path';
 import express from 'express';
 import expressConfig from 'express-config';
 import serverRender from 'server-render';
 
 import {
-  bootstrapExpressApp,
-  staticFolder,
-} from '@/constants';
-
-import {
   preServerRender,
   postServerRender,
 } from '../middleware';
+
+const {
+  bootstrapExpressApp,
+  staticFolder,
+} = CONSTANTS;
 
 let app = express();
 
