@@ -10,10 +10,13 @@
     "commit": "git-cz"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "cz-lerna-changelog": "2.0.0",
     "eslint": "^5.9.0",
-    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "lerna": "^3.4.3"
   },
   "config": {
