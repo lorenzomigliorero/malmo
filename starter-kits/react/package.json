@@ -1,6 +1,6 @@
 {
   "name": "@malmo/react-starter-kit",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "A @malmo starter-kit for build React web applications",
   "main": "index.js",
   "repository": {
