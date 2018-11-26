@@ -58,8 +58,19 @@ module.exports = () => {
         {
           test: /\.(css)$/,
           use: [
+            {
+              loader: 'css-hot-loader',
+              options: cssHot,
+            },
             MiniCssExtractPlugin.loader,
-            'css-loader',
+            {
+              loader: 'css-loader',
+              options: css,
+            },
+            {
+              loader: 'postcss-loader',
+              options: postcss,
+            },
           ],
         },
       ],

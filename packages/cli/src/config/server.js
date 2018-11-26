@@ -60,7 +60,14 @@ module.exports = () => {
         {
           test: /\.css$/,
           use: [
-            'css-loader',
+            {
+              loader: 'css-loader/locals',
+              options: css,
+            },
+            {
+              loader: 'postcss-loader',
+              options: postcss,
+            },
           ],
         },
       ],
