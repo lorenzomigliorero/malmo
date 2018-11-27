@@ -11,7 +11,7 @@ module.exports = () => {
     bootstrapExpressApp,
     common,
     customConstants,
-    dist,
+    src,
     loaderConfigPath,
     malmoCliNodeModules,
     modernizr,
@@ -40,10 +40,9 @@ module.exports = () => {
         },
         {
           test: /\.(js|jsx)$/,
-          exclude: [
-            /(\/|\\)node_modules/,
-            assets,
-            dist,
+          include: [
+            src,
+            `${pwdNodeModules}/@malmo`,
           ],
           use: {
             loader: 'babel-loader',
