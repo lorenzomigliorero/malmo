@@ -73,11 +73,6 @@ module.exports = async (config) => {
         require('./help')({ minimal: true });
         spinner.start(labels['queue.startMulticompilerBuilds']());
       });
-
-      /* Error handling */
-      multiCompiler.hooks.done.tap('done', (multiStats) => {
-        multiStats.stats.forEach(stats => multiCompilerErrorHandler(null, stats));
-      });
     } else {
       if (projectType === 'ssr') {
         /* Transfer clientStats to server bundle */
@@ -93,19 +88,21 @@ module.exports = async (config) => {
           });
         });
       }
-      multiCompiler.run(multiCompilerErrorHandler);
+      multiCompiler.run();
     }
 
     /* Log assets from stats end resolve promise */
     multiCompiler.hooks.done.tap('done', (multiStats) => {
-      multiStats.stats.forEach((stats) => {
-        spinner.succeed(labels['queue.completeBuild'](stats));
-      });
+      multiStats.stats.forEach(stats => spinner.succeed(labels['queue.completeBuild'](stats)));
 
       compilationLog({
+        errorLength: multiStats.stats.some(stats => stats.hasErrors()),
         root,
         multiStats,
       });
+
+      /* Error handling */
+      multiStats.stats.forEach(stats => multiCompilerErrorHandler(null, stats));
 
       resolve({
         router,

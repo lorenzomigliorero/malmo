@@ -89,13 +89,16 @@ const labels = {
 
 const compilationLog = ({
   root,
+  errorLength,
   multiStats,
 }) => {
   console.log(labels.separator);
   multiStats.stats.forEach(stats => console.log(webpackAssetsLog(stats)));
   console.log(labels.separator);
-  console.log(labels[`success.${process.env.NODE_ENV === 'development' ? 'devServer' : 'build'}`]({ root }));
-  console.log(labels.separator);
+  if (!errorLength) {
+    console.log(labels[`success.${process.env.NODE_ENV === 'development' ? 'devServer' : 'build'}`]({ root }));
+    console.log(labels.separator);
+  }
 };
 
 const errorLog = ({ content }) => {
@@ -107,12 +110,13 @@ const multiCompilerErrorHandler = (err, stats) => {
 
   if (messages.errors.length) {
     messages.errors.forEach(e => console.log(`\n${chalk.red(e)}`));
-    return;
   }
 
   if (messages.warnings.length) {
     messages.warnings.forEach(w => console.log(`\n${chalk.red(w)}`));
   }
+
+  return messages.errors.length;
 };
 
 const ansiHeaderLog = ({ version }) => {
