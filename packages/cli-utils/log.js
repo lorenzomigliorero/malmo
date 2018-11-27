@@ -95,6 +95,7 @@ const compilationLog = ({
   console.log(labels.separator);
   multiStats.stats.forEach(stats => console.log(webpackAssetsLog(stats)));
   console.log(labels.separator);
+
   if (!errorLength) {
     console.log(labels[`success.${process.env.NODE_ENV === 'development' ? 'devServer' : 'build'}`]({ root }));
     console.log(labels.separator);
