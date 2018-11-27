@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli@1.1.0...@malmo/cli@1.1.1) (2018-11-27)
+
+
+### Bug Fixes
+
+* **babel-loader:** add babel-loader to node_modules/[@malmo](https://github.com/malmo) ([29193c6](https://github.com/lorenzomigliorero/malmo/commit/29193c6))
+
+
+
+
+
 # [1.1.0](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli@1.0.0...@malmo/cli@1.1.0) (2018-11-26)
 
 
