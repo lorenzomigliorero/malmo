@@ -1,6 +1,6 @@
 /* global CONSTANTS clientStats */
 import path from 'path';
-import express from 'express';
+import Express from 'express';
 import expressConfig from 'express-config';
 import serverRender from 'server-render';
 
@@ -14,7 +14,7 @@ const {
   staticFolder,
 } = CONSTANTS;
 
-let app = express();
+let app = Express();
 
 if (typeof (expressConfig) === 'function') {
   app = expressConfig(app);
@@ -23,8 +23,8 @@ if (typeof (expressConfig) === 'function') {
 app = preServerRender(app);
 
 app
-  .use(express.static(path.join(__dirname, staticFolder)))
-  .use(serverRender({ clientStats }));
+  .use(Express.static(path.join(__dirname, staticFolder)))
+  .use(serverRender({ clientStats: clientStats })); // eslint-disable-line
 
 app = postServerRender(app);
 
