@@ -48,8 +48,8 @@ const webpackAssetsLog = (stats) => {
 
 const labels = {
   'command.build': 'Build your application',
-  'command.dev': 'Launch dev server',
   'command.config': 'Print current configuration',
+  'command.dev': 'Launch dev server',
   'command.header': 'Available commands',
   'command.init': 'Initialize configuration wizard',
   'error.command': ({ command }) => `${chalk.italic(command)} command not recognized. Type ${chalk.italic('malmo')} and see ${chalk.italic('Available commands/options')} section`,
@@ -77,14 +77,14 @@ const labels = {
   'prompt.npmClient': 'Select your default npm client',
   'prompt.recap': 'Your input:',
   'prompt.starterKit': 'Select a starter kit',
-  separator: '',
-  'success.init': () => chalk.green.bold(`We are finished!\nLaunch ${chalk.blue.italic('malmo dev')} to init development.\n\n${chalk.bold.yellow('Happy coding!')}`),
-  'success.devServer': ({ root }) => chalk.green.bold(`Check your browser on ${chalk.blue.underline.italic(root)}`),
-  'success.build': () => chalk.green.bold('Build completed successfully!'),
   'queue.clean': log({ content: 'Clean dist folder' }),
-  'queue.startMulticompilerBuilds': (percentage = 0) => log({ content: `Building some stuff ${(percentage * 100).toFixed(2)}%` }),
-  'queue.percentage': percentage => log({ content: percentage ? `${(percentage * 100).toFixed(2)}%` : '' }),
   'queue.completeBuild': stats => log({ content: `${capitalize(stats.compilation.name)} compilation finish in ${chalk.green.italic(`${(stats.endTime - stats.startTime) / 1000}s`)}` }),
+  'queue.percentage': percentage => log({ content: percentage ? `${(percentage * 100).toFixed(2)}%` : '' }),
+  'queue.startMulticompilerBuilds': (percentage = 0) => log({ content: `Building some stuff ${(percentage * 100).toFixed(2)}%` }),
+  'success.build': () => chalk.green.bold('Build completed successfully!'),
+  'success.devServer': ({ root }) => chalk.green.bold(`Check your browser on ${chalk.blue.underline.italic(root)}`),
+  'success.init': () => chalk.green.bold(`We are finished!\nLaunch ${chalk.blue.italic('malmo dev')} to init development.\n\n${chalk.bold.yellow('Happy coding!')}`),
+  separator: '',
 };
 
 const compilationLog = ({
