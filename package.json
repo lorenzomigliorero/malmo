@@ -6,7 +6,7 @@
     "welcome/*"
   ],
   "scripts": {
-    "release": "lerna publish",
+    "release": "yarn run test && lerna publish",
     "test": "lerna run test",
     "commit": "git-cz"
   },
