@@ -174,6 +174,11 @@ const readFilesSync = (dir, files = []) => {
   return files;
 };
 
+const getIncludeArrayFromLoaderOption = loader => [
+  typeof (loader.include) === 'string' ? loader.include : false,
+  ...(Array.isArray(loader.include) ? loader.include : []),
+].filter(Boolean);
+
 module.exports = {
   catchEmitterErrors,
   checkIfTargetIsLibrary,
@@ -181,6 +186,7 @@ module.exports = {
   getArgs,
   getEmitter,
   getGlobalStarterKits,
+  getIncludeArrayFromLoaderOption,
   getMergedLoadersConfig,
   getMergedWebpackConfig,
   getProjectType,

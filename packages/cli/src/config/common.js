@@ -1,7 +1,11 @@
 const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const { omit } = require('lodash');
 const merge = require('webpack-merge');
-const { getMergedLoadersConfig } = require('@malmo/cli-utils');
+const {
+  getIncludeArrayFromLoaderOption,
+  getMergedLoadersConfig,
+} = require('@malmo/cli-utils');
 const loadersConfig = require('./loaders');
 
 module.exports = () => {
@@ -32,10 +36,13 @@ module.exports = () => {
     module: {
       rules: [
         {
-          include: assets,
+          include: [
+            assets,
+            ...getIncludeArrayFromLoaderOption(file),
+          ],
           use: {
             loader: 'file-loader',
-            options: file,
+            options: omit(file, 'include'),
           },
         },
         {
@@ -43,10 +50,11 @@ module.exports = () => {
           include: [
             src,
             `${pwdNodeModules}/@malmo`,
+            ...getIncludeArrayFromLoaderOption(js),
           ],
           use: {
             loader: 'babel-loader',
-            options: js,
+            options: omit(js, 'include'),
           },
         },
       ],
