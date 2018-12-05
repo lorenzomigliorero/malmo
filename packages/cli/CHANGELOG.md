@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli@1.2.1...@malmo/cli@1.3.0) (2018-12-05)
+
+
+### Features
+
+* **loaders:** add include param in loader config object ([16ece8a](https://github.com/lorenzomigliorero/malmo/commit/16ece8a))
+
+
+
+
+
 ## [1.2.1](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli@1.2.0...@malmo/cli@1.2.1) (2018-11-29)
 
 **Note:** Version bump only for package @malmo/cli
