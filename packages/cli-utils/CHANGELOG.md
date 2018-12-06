@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli-utils@1.2.0...@malmo/cli-utils@1.3.0) (2018-12-06)
+
+
+### Features
+
+* **commands:** add pre/post install commands ([5de07fc](https://github.com/lorenzomigliorero/malmo/commit/5de07fc))
+* **promiseSerial:** add promiseSerial utils ([67df095](https://github.com/lorenzomigliorero/malmo/commit/67df095))
+
+
+
+
+
 # [1.2.0](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli-utils@1.1.1...@malmo/cli-utils@1.2.0) (2018-12-05)
 
 

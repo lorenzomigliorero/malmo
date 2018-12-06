@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli@1.3.0...@malmo/cli@1.4.0) (2018-12-06)
+
+
+### Features
+
+* **commands:** add pre/post install commands ([5de07fc](https://github.com/lorenzomigliorero/malmo/commit/5de07fc))
+
+
+
+
+
 # [1.3.0](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli@1.2.1...@malmo/cli@1.3.0) (2018-12-05)
 
 
