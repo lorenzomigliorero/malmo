@@ -5,7 +5,10 @@ const {
   getRemotePackages,
 } = require('npm-node-utils');
 const opener = require('opener');
-const { execSync } = require('child_process');
+const {
+  execSync,
+  exec,
+} = require('child_process');
 const fs = require('fs');
 const commandLineArgs = require('command-line-args');
 const merge = require('webpack-merge');
@@ -179,9 +182,51 @@ const getIncludeArrayFromLoaderOption = loader => [
   ...(Array.isArray(loader.include) ? loader.include : []),
 ].filter(Boolean);
 
+const execSheelCommand = ({
+  command,
+  args = [],
+  sync = true,
+  rejectOnError = false,
+}) => {
+  const commandWithArgs = `${command} ${args.reduce((a, b) => `${a} ${b}`, '')}`;
+  const stdio = ['pipe', 'pipe', 'ignore'];
+  if (sync) {
+    try {
+      const out = execSync(commandWithArgs, { stdio });
+      return out.toString().trim();
+    } catch (err) {
+      if (err) return Error(err.message);
+    }
+  } else {
+    return new Promise((resolve, reject) => {
+      exec(commandWithArgs, { stdio }, (err, stdout) => {
+        if (err) (rejectOnError ? reject : resolve)(Error(err.message.trim()));
+        resolve(stdout.trim());
+      });
+    });
+  }
+  return false;
+};
+
+const promiseSerial = ({
+  promises,
+  onStart = false,
+  onResolve = false,
+}) => promises
+  .reduce((promiseChain, currentTask, index) => promiseChain
+    .then((chainResults) => {
+      if (typeof onStart === 'function') onStart(index);
+      return currentTask.then((currentResult) => {
+        if (typeof onResolve === 'function') onResolve(currentResult, index);
+        return [...chainResults, currentResult];
+      });
+    }),
+  Promise.resolve([]));
+
 module.exports = {
   catchEmitterErrors,
   checkIfTargetIsLibrary,
+  execSheelCommand,
   findFreePort,
   getArgs,
   getEmitter,
@@ -192,6 +237,7 @@ module.exports = {
   getProjectType,
   getRemoteStarterKits,
   openBrowser,
+  promiseSerial,
   readFilesSync,
   setFreePortEnv,
   sortObject,
