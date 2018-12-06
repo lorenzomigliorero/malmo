@@ -31,11 +31,9 @@ module.exports = ({
   return promiseSerial({
     promises: promisedCommands,
     onStart: (index) => {
-      console.log(index);
       if (onStartCommand) onStartCommand(commands[index]);
     },
     onResolve: (output, index) => {
-      console.log(index);
       const status = output instanceof Error ? 'error' : 'success';
       if (onResolveCommand) {
         onResolveCommand({
