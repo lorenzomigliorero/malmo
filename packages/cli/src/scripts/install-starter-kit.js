@@ -1,21 +1,49 @@
-const { exec } = require('child_process');
-const { copySync } = require('fs-extra');
-const { getGlobalPackagePath } = require('npm-node-utils');
+const {
+  execSheelCommand,
+  promiseSerial,
+} = require('@malmo/cli-utils');
+const { configFileName } = require('../constants/config');
 
 module.exports = ({
   npmClient,
-  starterKit,
-}) => new Promise((resolve) => {
-  const starterKitSrc = getGlobalPackagePath({
-    client: npmClient,
-    name: starterKit,
-  });
-  const { PWD } = process.env;
-  copySync(starterKitSrc, PWD, { dereference: true });
+  install = [npmClient === 'yarn' ? 'yarn install' : 'npm install'],
+  onStartCommand,
+  onResolveCommand,
+} = {}) => {
+  const {
+    command: {
+      preinstall = [],
+      postinstall = [],
+    } = {},
+  } = require(`${process.env.PWD}/${configFileName}`)();
 
-  const command = npmClient === 'yarn' ? 'yarn install' : 'npm install';
-  exec(command, (err) => {
-    if (err) throw new Error(err);
-    resolve();
+  const commands = [
+    ...preinstall,
+    ...install,
+    ...postinstall,
+  ];
+
+  const promisedCommands = commands.map(command => execSheelCommand({
+    command,
+    sync: false,
+  }));
+
+  return promiseSerial({
+    promises: promisedCommands,
+    onStart: (index) => {
+      console.log(index);
+      if (onStartCommand) onStartCommand(commands[index]);
+    },
+    onResolve: (output, index) => {
+      console.log(index);
+      const status = output instanceof Error ? 'error' : 'success';
+      if (onResolveCommand) {
+        onResolveCommand({
+          status,
+          error: status === 'error' ? output : undefined,
+          command: commands[index],
+        });
+      }
+    },
   });
-});
+};

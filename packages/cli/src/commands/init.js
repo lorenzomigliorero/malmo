@@ -47,14 +47,27 @@ module.exports = async () => {
     });
   }
 
-  spinner.start(labels['init.installDeps']);
+  spinner.start(labels['init.copy']);
 
-  await require('../scripts/install-starter-kit')({
+  await require('../scripts/copy-starter-kit')({
     npmClient,
     starterKit,
   });
 
-  spinner.succeed(labels['init.complete']);
+  spinner.succeed(labels['init.copy']);
+
+  await require('../scripts/install-starter-kit')({
+    npmClient,
+    onStartCommand: command => spinner.start(labels['init.command']({ command })),
+    onResolveCommand: ({
+      status,
+      error,
+      command,
+    }) => spinner[status === 'success' ? 'succeed' : 'fail'](labels['init.command']({
+      command,
+      error,
+    })),
+  });
 
   require('../scripts/update-package')({
     name,
