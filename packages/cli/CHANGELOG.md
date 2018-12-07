@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli@1.4.0...@malmo/cli@1.4.1) (2018-12-07)
+
+
+### Bug Fixes
+
+* **command:** add default configuration export ([f68ce4c](https://github.com/lorenzomigliorero/malmo/commit/f68ce4c))
+* **modernizr:** add to aliases dependencies ([677d2da](https://github.com/lorenzomigliorero/malmo/commit/677d2da))
+
+
+
+
+
 # [1.4.0](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli@1.3.0...@malmo/cli@1.4.0) (2018-12-06)
 
 
