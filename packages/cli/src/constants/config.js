@@ -7,6 +7,7 @@ module.exports = {
 
 module.exports.aliasDependencies = [
   'express',
+  'modernizr',
   'html-webpack-plugin',
   'mini-css-extract-plugin',
   'uglifyjs-webpack-plugin',

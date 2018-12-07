@@ -6,6 +6,7 @@ module.exports = {
       'html-webpack-plugin',
       'mini-css-extract-plugin',
       'uglifyjs-webpack-plugin',
+      'modernizr',
       'webpack',
       'webpack-merge',
     ],
