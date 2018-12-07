@@ -15,7 +15,7 @@ module.exports = ({
       preinstall = [],
       postinstall = [],
     } = {},
-  } = require(`${process.env.PWD}/${configFileName}`)();
+  } = require(`${process.env.PWD}/${configFileName}`)() || {};
 
   const commands = [
     ...preinstall,
