@@ -15,12 +15,13 @@ module.exports = () => {
     bootstrapExpressApp,
     common,
     customConstants,
-    src,
     loaderConfigPath,
     malmoCliNodeModules,
     modernizr,
+    projectType,
     publicPath,
     pwdNodeModules,
+    src,
     staticFolder,
   } = require('../constants');
 
@@ -92,14 +93,19 @@ module.exports = () => {
       new webpack.NamedModulesPlugin(),
       new webpack.NoEmitOnErrorsPlugin(),
     ],
-    optimization: {
-      splitChunks: {
-        chunks: 'all',
-        minSize: 0,
-        name: 'vendors',
-      },
-    },
   };
+
+  if (projectType !== 'library') {
+    config = merge(config, {
+      optimization: {
+        splitChunks: {
+          chunks: 'all',
+          minSize: 0,
+          name: 'vendors',
+        },
+      },
+    });
+  }
 
   if (modernizr) {
     config = merge(config, {
