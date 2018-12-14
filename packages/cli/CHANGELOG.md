@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli@1.4.1...@malmo/cli@1.4.2) (2018-12-14)
+
+
+### Bug Fixes
+
+* **splitChunks:** remove vendors splitChunks on library project ([e53dd2d](https://github.com/lorenzomigliorero/malmo/commit/e53dd2d))
+
+
+
+
+
 ## [1.4.1](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli@1.4.0...@malmo/cli@1.4.1) (2018-12-07)
 
 
