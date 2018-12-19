@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { omit } = require('lodash');
 const merge = require('webpack-merge');
+const path = require('path');
 const {
   getIncludeArrayFromLoaderOption,
   getMergedLoadersConfig,
@@ -50,7 +51,7 @@ module.exports = () => {
           test: /\.(js|jsx)$/,
           include: [
             src,
-            `${pwdNodeModules}/@malmo`,
+            path.join(pwdNodeModules, '@malmo'),
             ...getIncludeArrayFromLoaderOption(js),
           ],
           use: {
