@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.5](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli@1.4.4...@malmo/cli@1.4.5) (2018-12-21)
+
+
+### Bug Fixes
+
+* **root:** add root as overwritable constants ([5e012e5](https://github.com/lorenzomigliorero/malmo/commit/5e012e5))
+
+
+
+
+
 ## [1.4.4](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli@1.4.3...@malmo/cli@1.4.4) (2018-12-21)
 
 
