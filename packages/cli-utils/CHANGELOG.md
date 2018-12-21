@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli-utils@1.3.0...@malmo/cli-utils@1.3.1) (2018-12-21)
+
+
+### Bug Fixes
+
+* **process.env.PORT:** optimize process.env.PORT for production environment ([50a04db](https://github.com/lorenzomigliorero/malmo/commit/50a04db))
+
+
+
+
+
 # [1.3.0](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli-utils@1.2.0...@malmo/cli-utils@1.3.0) (2018-12-06)
 
 

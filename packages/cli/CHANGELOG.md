@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli@1.4.3...@malmo/cli@1.4.4) (2018-12-21)
+
+
+### Bug Fixes
+
+* **process.env.PORT:** optimize process.env.PORT for production environment ([50a04db](https://github.com/lorenzomigliorero/malmo/commit/50a04db))
+
+
+
+
+
 ## [1.4.3](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli@1.4.2...@malmo/cli@1.4.3) (2018-12-19)
 
 
