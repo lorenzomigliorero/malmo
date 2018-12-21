@@ -9,6 +9,7 @@ module.exports = async () => {
   process.env.NODE_ENV = 'development';
 
   const {
+    port,
     root,
     projectType,
     expressConfigPath,
@@ -33,7 +34,7 @@ module.exports = async () => {
 
   app = postServerRender(app);
 
-  app.listen(process.env.PORT);
+  app.listen(port);
 
   openBrowser({ url: root });
 };

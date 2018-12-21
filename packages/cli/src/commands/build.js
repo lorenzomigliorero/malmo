@@ -1,9 +1,5 @@
-const { setFreePortEnv } = require('@malmo/cli-utils');
-
 module.exports = async () => {
   process.env.NODE_ENV = 'production';
-
-  await setFreePortEnv();
 
   const { projectType } = require('../constants');
 

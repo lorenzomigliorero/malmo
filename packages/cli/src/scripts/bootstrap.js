@@ -5,7 +5,7 @@ const { path: rootPath } = require('app-root-path');
 const {
   getArgs,
   catchEmitterErrors,
-  setFreePortEnv,
+  getFreePort,
 } = require('@malmo/cli-utils');
 
 module.exports = async () => {
@@ -18,8 +18,6 @@ module.exports = async () => {
   });
 
   catchEmitterErrors();
-
-  await setFreePortEnv();
 
   /* Map cli modules to project */
   setAlias(aliasDependencies.reduce((obj, key) => {
@@ -36,6 +34,7 @@ module.exports = async () => {
   global.ARGS = getArgs();
   process.env.PWD = process.env.PWD || process.cwd();
   process.env.IP = process.env.IP || address();
+  process.env.PORT = process.env.PORT || await getFreePort();
 
   const { standard, _all: { command }, _unknown } = global.ARGS;
   const option = Object.keys(standard)[0];

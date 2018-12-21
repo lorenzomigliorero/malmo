@@ -19,6 +19,7 @@ module.exports = () => {
     loaderConfigPath,
     malmoCliNodeModules,
     modernizr,
+    port,
     projectType,
     publicPath,
     pwdNodeModules,
@@ -82,11 +83,12 @@ module.exports = () => {
       ],
     },
     plugins: [
-      new webpack.EnvironmentPlugin(['NODE_ENV', 'PORT', 'IP']),
+      new webpack.EnvironmentPlugin(['NODE_ENV', 'IP', process.env.NODE_ENV === 'development' ? 'PORT' : undefined].filter(Boolean)),
       new webpack.DefinePlugin({
         CONSTANTS: JSON.stringify({
           bootstrapExpressApp,
           publicPath,
+          port,
           staticFolder,
           ...customConstants,
         }),

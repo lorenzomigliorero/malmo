@@ -11,6 +11,7 @@ import {
 
 const {
   bootstrapExpressApp,
+  port,
   staticFolder,
 } = CONSTANTS;
 
@@ -29,7 +30,7 @@ app
 app = postServerRender(app);
 
 if (bootstrapExpressApp) {
-  app.listen(process.env.PORT, () => console.log(`Express server run on port ${process.env.PORT}`));
+  app.listen(process.env.PORT || port, () => console.log(`Express server run on port ${process.env.PORT || port}`));
 }
 
 const exportedApp = app;

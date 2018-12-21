@@ -55,13 +55,9 @@ const openBrowser = ({ url }) => {
   return true;
 };
 
-const findFreePort = (base) => {
+const getFreePort = (base) => {
   if (base) portFinder.basePort = base;
   return portFinder.getPortPromise();
-};
-
-const setFreePortEnv = async () => {
-  process.env.PORT = process.env.PORT || await findFreePort();
 };
 
 const getMergedWebpackConfig = ({
@@ -227,9 +223,9 @@ module.exports = {
   catchEmitterErrors,
   checkIfTargetIsLibrary,
   execSheelCommand,
-  findFreePort,
   getArgs,
   getEmitter,
+  getFreePort,
   getGlobalStarterKits,
   getIncludeArrayFromLoaderOption,
   getMergedLoadersConfig,
@@ -239,6 +235,5 @@ module.exports = {
   openBrowser,
   promiseSerial,
   readFilesSync,
-  setFreePortEnv,
   sortObject,
 };

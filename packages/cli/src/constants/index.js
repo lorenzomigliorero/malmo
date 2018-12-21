@@ -11,8 +11,8 @@ const config = require('./config');
 const {
   IP,
   NODE_ENV,
-  PORT,
   PWD,
+  PORT,
 } = process.env;
 
 const { ARGS } = global;
@@ -35,7 +35,7 @@ const overwritableConstants = {
   clean: true,
   dist: 'dist',
   publicPath: '',
-  root: `http://${IP}:${PORT}`,
+  port: PORT,
   staticFolder: '',
 };
 
@@ -111,11 +111,14 @@ Object.assign(constants, {
   src: path.resolve(PWD, constants.src),
   staticFolder: constants.staticFolder || constants.path,
   htmlIndex: fs.existsSync(path.resolve(constants.src, 'index.html')) ? path.resolve(constants.src, 'index.html') : undefined,
-  publicPath: NODE_ENV === 'development' ? `http://${IP}:${PORT}/` : constants.publicPath,
+  root: `http://${IP}:${constants.port}`,
+  publicPath: NODE_ENV === 'development' ? `http://${IP}:${constants.port}/` : constants.publicPath,
 });
 
 if (constants.browserListConfigPath) {
   process.env.BROWSERSLIST_CONFIG = constants.browserListConfigPath;
 }
+
+process.env.PORT = constants.port;
 
 module.exports = sortObject(constants);
