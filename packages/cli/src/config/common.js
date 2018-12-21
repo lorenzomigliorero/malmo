@@ -23,6 +23,7 @@ module.exports = () => {
     projectType,
     publicPath,
     pwdNodeModules,
+    root,
     src,
     staticFolder,
   } = require('../constants');
@@ -89,6 +90,7 @@ module.exports = () => {
           bootstrapExpressApp,
           publicPath,
           port,
+          root,
           staticFolder,
           ...customConstants,
         }),

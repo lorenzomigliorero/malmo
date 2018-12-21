@@ -36,6 +36,7 @@ const overwritableConstants = {
   dist: 'dist',
   publicPath: '',
   port: PORT,
+  root: '',
   staticFolder: '',
 };
 
@@ -111,7 +112,7 @@ Object.assign(constants, {
   src: path.resolve(PWD, constants.src),
   staticFolder: constants.staticFolder || constants.path,
   htmlIndex: fs.existsSync(path.resolve(constants.src, 'index.html')) ? path.resolve(constants.src, 'index.html') : undefined,
-  root: `http://${IP}:${constants.port}`,
+  root: NODE_ENV === 'development' ? constants.root || `http://${IP}:${constants.port}` : constants.root,
   publicPath: NODE_ENV === 'development' ? `http://${IP}:${constants.port}/` : constants.publicPath,
 });
 
