@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.6](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli@1.4.5...@malmo/cli@1.4.6) (2019-01-07)
+
+
+### Bug Fixes
+
+* **staticFolder:** fix staticFolder parameter in webpack output configuration ([85099f9](https://github.com/lorenzomigliorero/malmo/commit/85099f9))
+
+
+
+
+
 ## [1.4.5](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli@1.4.4...@malmo/cli@1.4.5) (2018-12-21)
 
 
