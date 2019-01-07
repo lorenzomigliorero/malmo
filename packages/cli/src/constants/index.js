@@ -87,7 +87,7 @@ if (constants.projectType === 'ssr') {
     common: path.resolve(PWD, constants.src, 'common'),
     path: constants.path || 'public',
     // Ensure that public path starts end ends with '/'
-    publicPath: path.posix.join('/', constants.publicPath, '/'),
+    publicPath: path.posix.join('/', constants.publicPath, constants.staticFolder, '/'),
     serverEntry: path.resolve(__dirname, '../entry/server.js'),
     serverRender: path.resolve(PWD, constants.src, 'server'),
     styles: path.resolve(PWD, constants.src, 'common', 'styles'),
@@ -113,7 +113,7 @@ Object.assign(constants, {
   htmlIndex: fs.existsSync(path.resolve(constants.src, 'index.html')) ? path.resolve(constants.src, 'index.html') : undefined,
   root: NODE_ENV === 'development' ? constants.root || `http://${IP}:${constants.port}` : constants.root,
   /* publicPath will be prepended on every required assets, example: /{publicPath}/main.js */
-  publicPath: NODE_ENV === 'development' ? `http://${IP}:${constants.port}/` : path.posix.join(constants.publicPath, constants.staticFolder, '/'),
+  publicPath: NODE_ENV === 'development' ? `http://${IP}:${constants.port}/` : constants.publicPath,
 });
 
 if (constants.browserListConfigPath) {
