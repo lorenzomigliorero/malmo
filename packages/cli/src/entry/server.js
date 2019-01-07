@@ -12,7 +12,7 @@ import {
 const {
   bootstrapExpressApp,
   port,
-  staticFolder,
+  expressStaticFolder,
 } = CONSTANTS;
 
 let app = Express();
@@ -24,7 +24,7 @@ if (typeof (expressConfig) === 'function') {
 app = preServerRender(app);
 
 app
-  .use(Express.static(path.join(__dirname, staticFolder)))
+  .use(Express.static(path.join(__dirname, expressStaticFolder)))
   .use(serverRender({ clientStats: clientStats })); // eslint-disable-line
 
 app = postServerRender(app);

@@ -63,11 +63,8 @@ const createAppConfigEnv = envFromArgs ? (createAppConfig.env || {})[envFromArgs
 /* Overwrite default configuration with env configuration */
 const configFromEnv = Object.assign(omit(createAppConfig, 'env'), createAppConfigEnv);
 
-/* Collect custom constants, substracting keys from constants object  */
-let customConstants = omit(configFromEnv, Object.keys(configFromEnv)
-  .filter(key => Object.keys(overwritableConstants).includes(key)));
-
-customConstants = sortObject(customConstants);
+/* Collect custom constants  */
+const customConstants = sortObject(configFromEnv);
 
 /* Merge overwritableConstants with env configuration */
 Object.assign(overwritableConstants, configFromEnv, { customConstants });
@@ -108,12 +105,15 @@ if (constants.projectType === 'ssr') {
 
 Object.assign(constants, {
   dist: path.resolve(PWD, constants.dist),
-  path: path.join(PWD, constants.dist, constants.path),
+  /* absolute path, tells webpack where to create bundle */
+  path: path.join(PWD, constants.dist, constants.path, constants.staticFolder),
   src: path.resolve(PWD, constants.src),
-  staticFolder: constants.staticFolder || constants.path,
+  /* expressStaticFolder tells Express where to server static assets */
+  expressStaticFolder: path.posix.join(constants.path),
   htmlIndex: fs.existsSync(path.resolve(constants.src, 'index.html')) ? path.resolve(constants.src, 'index.html') : undefined,
   root: NODE_ENV === 'development' ? constants.root || `http://${IP}:${constants.port}` : constants.root,
-  publicPath: NODE_ENV === 'development' ? `http://${IP}:${constants.port}/` : constants.publicPath,
+  /* publicPath will be prepended on every required assets, example: /{publicPath}/main.js */
+  publicPath: NODE_ENV === 'development' ? `http://${IP}:${constants.port}/` : path.posix.join(constants.publicPath, constants.staticFolder, '/'),
 });
 
 if (constants.browserListConfigPath) {

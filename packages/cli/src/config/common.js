@@ -16,6 +16,7 @@ module.exports = () => {
     bootstrapExpressApp,
     common,
     customConstants,
+    expressStaticFolder,
     loaderConfigPath,
     malmoCliNodeModules,
     modernizr,
@@ -25,7 +26,6 @@ module.exports = () => {
     pwdNodeModules,
     root,
     src,
-    staticFolder,
   } = require('../constants');
 
   const { file, js } = getMergedLoadersConfig({
@@ -91,7 +91,7 @@ module.exports = () => {
           publicPath,
           port,
           root,
-          staticFolder,
+          expressStaticFolder,
           ...customConstants,
         }),
       }),
