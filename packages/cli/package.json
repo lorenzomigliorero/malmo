@@ -1,5 +1,5 @@
 {
-  "name": "@malmo/cli",
+  "name": "malmo",
   "version": "1.4.6",
   "description": "A cli interface to build Javascript applications with zero configuration.",
   "bin": {
