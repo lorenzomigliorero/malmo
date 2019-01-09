@@ -10,17 +10,25 @@ const loadersConfig = require('./loaders');
 
 module.exports = () => {
   const {
+    client,
     customConstants,
-    webpackConfigPath,
+    htmlIndex,
     loaderConfigPath,
     modernizr,
     path,
-    client,
     projectType,
-    htmlIndex,
+    pwdNodeModules,
+    webpackConfigPath,
   } = require('../constants');
 
-  const { css, scss, postcss, cssHot } = getMergedLoadersConfig({
+  const {
+    css,
+    cssNodeModules,
+    scss,
+    postcss,
+    postcssNodeModules,
+    cssHot,
+  } = getMergedLoadersConfig({
     config: loadersConfig,
     loaderConfigPath,
     customConstants,
@@ -57,6 +65,7 @@ module.exports = () => {
         },
         {
           test: /\.(css)$/,
+          exclude: pwdNodeModules,
           use: [
             {
               loader: 'css-hot-loader',
@@ -70,6 +79,21 @@ module.exports = () => {
             {
               loader: 'postcss-loader',
               options: postcss,
+            },
+          ],
+        },
+        {
+          test: /\.(css)$/,
+          include: pwdNodeModules,
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: cssNodeModules,
+            },
+            {
+              loader: 'postcss-loader',
+              options: postcssNodeModules,
             },
           ],
         },

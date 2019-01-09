@@ -8,18 +8,25 @@ module.exports = () => {
   process.env.SERVER = true;
 
   const {
+    customConstants,
     dist,
     emptyModule,
-    loaderConfigPath,
     expressConfigPath,
-    serverRender,
+    loaderConfigPath,
     modernizr,
+    pwdNodeModules,
     serverEntry,
+    serverRender,
     webpackConfigPath,
-    customConstants,
   } = require('../constants');
 
-  const { css, scss, postcss } = getMergedLoadersConfig({
+  const {
+    css,
+    cssNodeModules,
+    scss,
+    postcss,
+    postcssNodeModules,
+  } = getMergedLoadersConfig({
     config: loadersConfig,
     loaderConfigPath,
     customConstants,
@@ -59,6 +66,7 @@ module.exports = () => {
         },
         {
           test: /\.css$/,
+          exclude: pwdNodeModules,
           use: [
             {
               loader: 'css-loader/locals',
@@ -67,6 +75,20 @@ module.exports = () => {
             {
               loader: 'postcss-loader',
               options: postcss,
+            },
+          ],
+        },
+        {
+          test: /\.(css)$/,
+          include: pwdNodeModules,
+          use: [
+            {
+              loader: 'css-loader/locals',
+              options: cssNodeModules,
+            },
+            {
+              loader: 'postcss-loader',
+              options: postcssNodeModules,
             },
           ],
         },
