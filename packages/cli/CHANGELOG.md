@@ -8,25 +8,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **babel-core:** remove babel-core from aliased dependencies ([1c3e90b](https://github.com/lorenzomigliorero/malmo/commit/1c3e90b))
-* **babel-loader:** add babel-loader to node_modules/[@malmo](https://github.com/malmo) ([29193c6](https://github.com/lorenzomigliorero/malmo/commit/29193c6))
-* **command:** add default configuration export ([f68ce4c](https://github.com/lorenzomigliorero/malmo/commit/f68ce4c))
-* **constants:** import constants from global define to remove any link with starter kit folder struc ([2575a7f](https://github.com/lorenzomigliorero/malmo/commit/2575a7f))
-* **loaders:** replace old params with process.env variables in loaders.js ([f7a3293](https://github.com/lorenzomigliorero/malmo/commit/f7a3293))
-* **modernizr:** add to aliases dependencies ([677d2da](https://github.com/lorenzomigliorero/malmo/commit/677d2da))
-* **process.env.PORT:** optimize process.env.PORT for production environment ([50a04db](https://github.com/lorenzomigliorero/malmo/commit/50a04db))
-* **root:** add root as overwritable constants ([5e012e5](https://github.com/lorenzomigliorero/malmo/commit/5e012e5))
-* **splitChunks:** remove vendors splitChunks on library project ([e53dd2d](https://github.com/lorenzomigliorero/malmo/commit/e53dd2d))
-* **staticFolder:** fix staticFolder parameter in webpack output configuration ([85099f9](https://github.com/lorenzomigliorero/malmo/commit/85099f9))
-* **staticFolder:** remove staticFolder from publicPath on client starter kit ([4da50c1](https://github.com/lorenzomigliorero/malmo/commit/4da50c1))
-* **windows:** path resolution ([52fc429](https://github.com/lorenzomigliorero/malmo/commit/52fc429))
+(https://github.com/lorenzomigliorero/malmo/commit/85099f9))
+* **staticFolder:** remove staticFolder from publicPath on client starter kit ([4da50c1]
 
 
 ### Features
 
-* **commands:** add pre/post install commands ([5de07fc](https://github.com/lorenzomigliorero/malmo/commit/5de07fc))
-* **css:** add postcss-loader to css webpack rule ([3c7c2d4](https://github.com/lorenzomigliorero/malmo/commit/3c7c2d4))
-* **loaders:** add include param in loader config object ([16ece8a](https://github.com/lorenzomigliorero/malmo/commit/16ece8a))
 * **pkg-name:** rename package to malmo ([ba6fc65](https://github.com/lorenzomigliorero/malmo/commit/ba6fc65))
 * **styles-loaders:** add different css, postCss loaders options for node_modules folder ([b6781e4](https://github.com/lorenzomigliorero/malmo/commit/b6781e4))
 
