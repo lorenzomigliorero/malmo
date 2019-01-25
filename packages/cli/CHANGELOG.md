@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.0.0...malmo@2.1.0) (2019-01-25)
+
+
+### Features
+
+* **express-config:** add customConstants as arguments in expressConfig function ([9ce64df](https://github.com/lorenzomigliorero/malmo/commit/9ce64df))
+
+
+
+
+
 # 2.0.0 (2019-01-09)
 
 

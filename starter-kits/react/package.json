@@ -1,6 +1,6 @@
 {
   "name": "@malmo/react-starter-kit",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A @malmo starter-kit for build React web applications",
   "main": "index.js",
   "repository": {
@@ -16,7 +16,7 @@
   "dependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "@malmo/welcome-react": "^1.0.1",
+    "@malmo/welcome-react": "^1.0.2",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
