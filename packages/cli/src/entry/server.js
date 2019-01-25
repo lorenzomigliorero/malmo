@@ -11,14 +11,14 @@ import {
 
 const {
   bootstrapExpressApp,
-  port,
   expressStaticFolder,
+  port,
 } = CONSTANTS;
 
 let app = Express();
 
 if (typeof (expressConfig) === 'function') {
-  app = expressConfig(app);
+  app = expressConfig(app, CONSTANTS);
 }
 
 app = preServerRender(app);

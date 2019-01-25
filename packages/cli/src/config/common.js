@@ -88,10 +88,10 @@ module.exports = () => {
       new webpack.DefinePlugin({
         CONSTANTS: JSON.stringify({
           bootstrapExpressApp,
-          publicPath,
-          port,
-          root,
           expressStaticFolder,
+          port,
+          publicPath,
+          root,
           ...customConstants,
         }),
       }),

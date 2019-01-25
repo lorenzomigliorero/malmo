@@ -13,6 +13,7 @@ module.exports = async () => {
     root,
     projectType,
     expressConfigPath,
+    ...customConstants
   } = require('../constants');
 
   const expressConfig = require(expressConfigPath);
@@ -25,7 +26,7 @@ module.exports = async () => {
   let app = express();
 
   if (typeof (expressConfig) === 'function') {
-    app = require(expressConfigPath)(app);
+    app = expressConfig(app, customConstants);
   }
 
   app = preServerRender(app);
