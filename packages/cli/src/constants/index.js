@@ -1,29 +1,26 @@
 const path = require('path');
 const { omit } = require('lodash');
+const url = require('url');
 const fs = require('fs');
 const { path: appRootPath } = require('app-root-path');
-const {
-  getProjectType,
-  sortObject,
-} = require('@malmo/cli-utils');
+const { getProjectType, sortObject } = require('@malmo/cli-utils');
 const config = require('./config');
 
-const {
-  IP,
-  NODE_ENV,
-  PWD,
-  PORT,
-} = process.env;
+const { IP, NODE_ENV, PWD, PORT } = process.env;
 
 const { ARGS } = global;
 
 const constants = {
   appRootNodeModules: `${appRootPath}/node_modules`,
-  browserListConfigPath: fs.existsSync(`${PWD}/.browserslistrc`) ? `${PWD}/.browserslistrc` : undefined,
+  browserListConfigPath: fs.existsSync(`${PWD}/.browserslistrc`)
+    ? `${PWD}/.browserslistrc`
+    : undefined,
   malmoCliRoot: path.resolve(__dirname, '../../'),
   malmoCliNodeModules: path.resolve(__dirname, '../../node_modules'),
   emptyModule: path.resolve(__dirname, '../shims/module'),
-  modernizr: fs.existsSync(`${PWD}/.modernizrrc.js`) ? path.resolve(PWD, '.modernizrrc.js') : undefined,
+  modernizr: fs.existsSync(`${PWD}/.modernizrrc.js`)
+    ? path.resolve(PWD, '.modernizrrc.js')
+    : undefined,
   path: '',
   pwd: PWD,
   pwdNodeModules: path.resolve(PWD, 'node_modules'),
@@ -87,7 +84,9 @@ if (constants.projectType === 'ssr') {
     common: path.resolve(PWD, constants.src, 'common'),
     path: constants.path || 'public',
     // Ensure that public path starts end ends with '/'
-    publicPath: path.posix.join('/', constants.publicPath, constants.staticFolder, '/'),
+    publicPath: !constants.publicPath.startsWith('http')
+      ? path.posix.join('/', constants.publicPath, constants.staticFolder, '/')
+      : url.resolve(constants.publicPath, constants.staticFolder, '/'),
     serverEntry: path.resolve(__dirname, '../entry/server.js'),
     serverRender: path.resolve(PWD, constants.src, 'server'),
     styles: path.resolve(PWD, constants.src, 'common', 'styles'),
@@ -98,7 +97,9 @@ if (constants.projectType === 'ssr') {
     client: path.resolve(PWD, constants.src),
     common: path.resolve(PWD, constants.src),
     // If exists, ensure that public path ends with '/'
-    publicPath: constants.publicPath ? path.posix.join(constants.publicPath, '/') : constants.publicPath,
+    publicPath: constants.publicPath
+      ? path.posix.join(constants.publicPath, '/')
+      : constants.publicPath,
     styles: path.resolve(PWD, constants.src, 'styles'),
   });
 }
@@ -110,8 +111,10 @@ Object.assign(constants, {
   src: path.resolve(PWD, constants.src),
   /* expressStaticFolder tells Express where to server static assets */
   expressStaticFolder: path.posix.join(constants.path),
-  htmlIndex: fs.existsSync(path.resolve(constants.src, 'index.html')) ? path.resolve(constants.src, 'index.html') : undefined,
-  root: NODE_ENV === 'development' ? constants.root || `http://${IP}:${constants.port}` : constants.root,
+  htmlIndex: fs.existsSync(path.resolve(constants.src, 'index.html'))
+    ? path.resolve(constants.src, 'index.html')
+    : undefined,
+  root: constants.root || `http://${IP}:${constants.port}`,
   /* publicPath will be prepended on every required assets, example: /{publicPath}/main.js */
   publicPath: NODE_ENV === 'development' ? `http://${IP}:${constants.port}/` : constants.publicPath,
 });
