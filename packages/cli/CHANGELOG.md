@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.1.0...malmo@2.1.1) (2019-07-15)
+
+
+### Bug Fixes
+
+* **publicPath:** fix publicPath normalization with absolute url ([649c3d6](https://github.com/lorenzomigliorero/malmo/commit/649c3d6))
+* **webpack-hot-middleware:** add path for __webpack_hmr scripts ([6c2d520](https://github.com/lorenzomigliorero/malmo/commit/6c2d520))
+
+
+
+
+
 # [2.1.0](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.0.0...malmo@2.1.0) (2019-01-25)
 
 
