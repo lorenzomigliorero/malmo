@@ -5,7 +5,7 @@ const merge = require('webpack-merge');
 const path = require('path');
 const {
   getIncludeArrayFromLoaderOption,
-  getMergedLoadersConfig,
+  getMergedConfig,
 } = require('@malmo/cli-utils');
 const loadersConfig = require('./loaders');
 
@@ -28,10 +28,10 @@ module.exports = () => {
     src,
   } = require('../constants');
 
-  const { file, js } = getMergedLoadersConfig({
-    config: loadersConfig,
-    loaderConfigPath,
-    customConstants,
+  const { file, js } = getMergedConfig({
+    baseConfig: loadersConfig(customConstants),
+    configPath: loaderConfigPath,
+    params: customConstants,
   });
 
   let config = {

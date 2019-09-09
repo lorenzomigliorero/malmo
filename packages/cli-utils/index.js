@@ -60,38 +60,21 @@ const getFreePort = (base) => {
   return portFinder.getPortPromise();
 };
 
-const getMergedWebpackConfig = ({
-  config = {},
-  webpackConfigPath,
-  customConstants = {},
+const getMergedConfig = ({
+  baseConfig = {},
+  configPath,
+  params = {},
 }) => {
-  if (fs.existsSync(webpackConfigPath)) {
-    let webpackConfig = require(webpackConfigPath);
-    if (typeof webpackConfig === 'function') {
-      webpackConfig = webpackConfig({ ...customConstants });
-      if (typeof (webpackConfig) === 'object') {
-        return merge(config, webpackConfig);
+  if (fs.existsSync(configPath)) {
+    let config = require(configPath);
+    if (typeof config === 'function') {
+      config = config(params);
+      if (typeof (config) === 'object') {
+        return merge(baseConfig, config);
       }
     }
   }
-  return config;
-};
-
-const getMergedLoadersConfig = ({
-  config,
-  loaderConfigPath,
-  customConstants = {},
-}) => {
-  if (fs.existsSync(loaderConfigPath)) {
-    let loaderConfig = require(loaderConfigPath);
-    if (typeof loaderConfig === 'function') {
-      loaderConfig = loaderConfig(customConstants);
-      if (typeof (loaderConfig) === 'object') {
-        return merge(config(customConstants), loaderConfig);
-      }
-    }
-  }
-  return config(customConstants);
+  return baseConfig;
 };
 
 const getArgs = () => commandLineArgs([
@@ -123,9 +106,9 @@ const checkIfTargetIsLibrary = ({
   webpackConfigPath,
   customConstants,
 }) => {
-  const config = getMergedWebpackConfig({
-    webpackConfigPath,
-    ...customConstants,
+  const config = getMergedConfig({
+    configPath: webpackConfigPath,
+    params: customConstants,
   });
   return !!(config.output && config.output.library);
 };
@@ -228,8 +211,7 @@ module.exports = {
   getFreePort,
   getGlobalStarterKits,
   getIncludeArrayFromLoaderOption,
-  getMergedLoadersConfig,
-  getMergedWebpackConfig,
+  getMergedConfig,
   getProjectType,
   getRemoteStarterKits,
   openBrowser,

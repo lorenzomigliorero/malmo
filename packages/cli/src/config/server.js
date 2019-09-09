@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const { getMergedWebpackConfig, getMergedLoadersConfig } = require('@malmo/cli-utils');
+const { getMergedConfig } = require('@malmo/cli-utils');
 const commonConfig = require('./common');
 const loadersConfig = require('./loaders');
 
@@ -26,10 +26,10 @@ module.exports = () => {
     scss,
     postcss,
     postcssNodeModules,
-  } = getMergedLoadersConfig({
-    config: loadersConfig,
-    loaderConfigPath,
-    customConstants,
+  } = getMergedConfig({
+    baseConfig: loadersConfig(customConstants),
+    configPath: loaderConfigPath,
+    params: customConstants,
   });
 
   let config = merge(commonConfig(), {
@@ -116,9 +116,9 @@ module.exports = () => {
     });
   }
 
-  return getMergedWebpackConfig({
-    config,
-    webpackConfigPath,
-    customConstants,
+  return getMergedConfig({
+    baseConfig: config,
+    configPath: webpackConfigPath,
+    params: customConstants,
   });
 };
