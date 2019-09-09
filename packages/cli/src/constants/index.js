@@ -4,7 +4,7 @@ const url = require('url');
 const fs = require('fs');
 const { path: appRootPath } = require('app-root-path');
 const { getProjectType, sortObject } = require('@malmo/cli-utils');
-const config = require('./config');
+const configFileNames = require('./config');
 
 const { IP, NODE_ENV, PWD, PORT } = process.env;
 
@@ -38,7 +38,7 @@ const overwritableConstants = {
 };
 
 /* Merge with configuration files name */
-Object.assign(constants, config);
+Object.assign(constants, configFileNames);
 
 /* Create absolute configuration path */
 Object.assign(constants, {
@@ -52,14 +52,14 @@ Object.assign(constants, {
 });
 
 /* Require createConfig from pwd */
-const createAppConfig = require(`${PWD}/${constants.configFileName}`)();
+const config = require(constants.configPath)();
 
 /* Extract env object based on args */
 const envFromArgs = ARGS._all.env; // eslint-disable-line
-const createAppConfigEnv = envFromArgs ? (createAppConfig.env || {})[envFromArgs] : {};
+const configEnv = envFromArgs ? (config.env || {})[envFromArgs] : {};
 
 /* Overwrite default configuration with env configuration */
-const configFromEnv = Object.assign(omit(createAppConfig, 'env'), createAppConfigEnv);
+const configFromEnv = Object.assign(omit(config, 'env'), configEnv);
 
 /* Collect custom constants  */
 const customConstants = sortObject(configFromEnv);
