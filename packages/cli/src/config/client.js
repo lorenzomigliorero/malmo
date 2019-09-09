@@ -11,8 +11,8 @@ module.exports = () => {
     client,
     customConstants,
     htmlIndex,
-    loaderConfigPath,
-    pluginConfigPath,
+    loadersConfigPath,
+    pluginsConfigPath,
     modernizr,
     path,
     projectType,
@@ -29,7 +29,7 @@ module.exports = () => {
     cssHot,
   } = getMergedConfig({
     baseConfig: loadersConfig(customConstants),
-    configPath: loaderConfigPath,
+    configPath: loadersConfigPath,
     params: customConstants,
   });
 
@@ -38,7 +38,7 @@ module.exports = () => {
     htmlWebpackPlugin,
   } = getMergedConfig({
     baseConfig: pluginsConfig(customConstants),
-    configPath: pluginConfigPath,
+    configPath: pluginsConfigPath,
     params: customConstants,
   });
 

@@ -12,7 +12,7 @@ module.exports = () => {
     dist,
     emptyModule,
     expressConfigPath,
-    loaderConfigPath,
+    loadersConfigPath,
     modernizr,
     pwdNodeModules,
     serverEntry,
@@ -28,7 +28,7 @@ module.exports = () => {
     postcssNodeModules,
   } = getMergedConfig({
     baseConfig: loadersConfig(customConstants),
-    configPath: loaderConfigPath,
+    configPath: loadersConfigPath,
     params: customConstants,
   });
 

@@ -18,8 +18,8 @@ module.exports = () => {
     common,
     customConstants,
     expressStaticFolder,
-    loaderConfigPath,
-    pluginConfigPath,
+    loadersConfigPath,
+    pluginsConfigPath,
     malmoCliNodeModules,
     modernizr,
     port,
@@ -32,13 +32,13 @@ module.exports = () => {
 
   const { file, js } = getMergedConfig({
     baseConfig: loadersConfig(customConstants),
-    configPath: loaderConfigPath,
+    configPath: loadersConfigPath,
     params: customConstants,
   });
 
   const { uglifyJsPlugin } = getMergedConfig({
     baseConfig: pluginsConfig(customConstants),
-    configPath: pluginConfigPath,
+    configPath: pluginsConfigPath,
     params: customConstants,
   });
 

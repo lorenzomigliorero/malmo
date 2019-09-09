@@ -46,8 +46,8 @@ Object.assign(constants, {
   expressConfigPath: fs.existsSync(path.resolve(PWD, constants.configExpressFileName))
     ? path.resolve(PWD, constants.configExpressFileName)
     : constants.emptyModule,
-  pluginConfigPath: path.resolve(PWD, constants.configPluginsFileName),
-  loaderConfigPath: path.resolve(PWD, constants.configLoadersFileName),
+  pluginsConfigPath: path.resolve(PWD, constants.configPluginsFileName),
+  loadersConfigPath: path.resolve(PWD, constants.configLoadersFileName),
   webpackConfigPath: path.resolve(PWD, constants.configWebpackFileName),
 });
 
