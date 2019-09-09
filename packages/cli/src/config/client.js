@@ -4,6 +4,7 @@ const merge = require('webpack-merge');
 const { getMergedConfig } = require('@malmo/cli-utils');
 const commonConfig = require('./common');
 const loadersConfig = require('./loaders');
+const pluginsConfig = require('./plugins');
 
 module.exports = () => {
   const {
@@ -11,6 +12,7 @@ module.exports = () => {
     customConstants,
     htmlIndex,
     loaderConfigPath,
+    pluginConfigPath,
     modernizr,
     path,
     projectType,
@@ -31,11 +33,28 @@ module.exports = () => {
     params: customConstants,
   });
 
+  const {
+    miniCssExtractPlugin,
+    htmlWebpackPlugin,
+  } = getMergedConfig({
+    baseConfig: pluginsConfig(customConstants),
+    configPath: pluginConfigPath,
+    params: customConstants,
+  });
+
   let config = merge(commonConfig(), {
     name: 'client',
     target: 'web',
     entry: { [projectType === 'library' ? 'index' : 'main']: [client] },
-    output: { path },
+    output: {
+      path,
+      filename: process.env.NODE_ENV === 'development' || projectType === 'library'
+        ? '[name].js'
+        : '[name].[contenthash:5].js',
+      chunkFilename: process.env.NODE_ENV === 'development' || projectType === 'library'
+        ? '[name].js'
+        : '[name].[contenthash:5].js',
+    },
     module: {
       rules: [
         {
@@ -96,6 +115,7 @@ module.exports = () => {
         },
       ],
     },
+    plugins: [new MiniCssExtractPlugin(miniCssExtractPlugin)],
   });
 
   if (modernizr) {
@@ -109,27 +129,7 @@ module.exports = () => {
   if (htmlIndex) {
     config = merge(config, {
       plugins: [
-        new HtmlWebpackPlugin({ template: htmlIndex }),
-      ],
-    });
-  }
-
-  if (process.env.NODE_ENV === 'development' || projectType === 'library') {
-    config = merge(config, {
-      output: {
-        filename: '[name].js',
-        chunkFilename: '[name].js',
-      },
-      plugins: [new MiniCssExtractPlugin({ filename: '[name].css' })],
-    });
-  } else {
-    config = merge(config, {
-      output: {
-        filename: '[name].[contenthash:5].js',
-        chunkFilename: '[name].[contenthash:5].js',
-      },
-      plugins: [
-        new MiniCssExtractPlugin({ filename: '[name].[contenthash:5].css' }),
+        new HtmlWebpackPlugin(htmlWebpackPlugin),
       ],
     });
   }

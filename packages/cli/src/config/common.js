@@ -8,6 +8,7 @@ const {
   getMergedConfig,
 } = require('@malmo/cli-utils');
 const loadersConfig = require('./loaders');
+const pluginsConfig = require('./plugins');
 
 module.exports = () => {
   const {
@@ -18,6 +19,7 @@ module.exports = () => {
     customConstants,
     expressStaticFolder,
     loaderConfigPath,
+    pluginConfigPath,
     malmoCliNodeModules,
     modernizr,
     port,
@@ -31,6 +33,12 @@ module.exports = () => {
   const { file, js } = getMergedConfig({
     baseConfig: loadersConfig(customConstants),
     configPath: loaderConfigPath,
+    params: customConstants,
+  });
+
+  const { uglifyJsPlugin } = getMergedConfig({
+    baseConfig: pluginsConfig(customConstants),
+    configPath: pluginConfigPath,
     params: customConstants,
   });
 
@@ -130,25 +138,7 @@ module.exports = () => {
       performance: { hints: false },
       optimization: {
         minimizer: [
-          new UglifyJsPlugin({
-            cache: true,
-            parallel: true,
-            uglifyOptions: {
-              compress: {
-                warnings: false,
-                conditionals: true,
-                reduce_vars: false,
-                unused: true,
-                comparisons: true,
-                sequences: true,
-                dead_code: true,
-                evaluate: true,
-                join_vars: true,
-                if_return: true,
-              },
-              output: { comments: false },
-            },
-          }),
+          new UglifyJsPlugin(uglifyJsPlugin),
         ],
       },
     });
