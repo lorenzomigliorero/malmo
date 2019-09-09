@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.1.1...malmo@2.2.0) (2019-09-09)
+
+
+### Features
+
+* **Plugins:** add plugins configuration ([3784a6b](https://github.com/lorenzomigliorero/malmo/commit/3784a6b))
+
+
+
+
+
 ## [2.1.1](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.1.0...malmo@2.1.1) (2019-07-15)
 
 
