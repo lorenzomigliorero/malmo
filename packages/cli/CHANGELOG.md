@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.2.0...malmo@2.2.1) (2019-09-12)
+
+
+### Bug Fixes
+
+* **module resolution:** replace [@malmo](https://github.com/malmo)/cli with malmo in setAlias method ([b7d19dc](https://github.com/lorenzomigliorero/malmo/commit/b7d19dc))
+
+
+
+
+
 # [2.2.0](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.1.1...malmo@2.2.0) (2019-09-09)
 
 
