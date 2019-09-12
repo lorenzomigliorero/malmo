@@ -21,7 +21,7 @@ module.exports = async () => {
 
   /* Map cli modules to project */
   setAlias(aliasDependencies.reduce((obj, key) => {
-    const malmoCliNodeModulesPackagePath = `${rootPath}/node_modules/@malmo/cli/node_modules/${key}`;
+    const malmoCliNodeModulesPackagePath = `${rootPath}/node_modules/malmo/node_modules/${key}`;
     const globalNodeModulesPackagePath = `${rootPath}/node_modules/${key}`;
     if (existsSync(malmoCliNodeModulesPackagePath)) {
       obj[key] = malmoCliNodeModulesPackagePath; // eslint-disable-line no-param-reassign
