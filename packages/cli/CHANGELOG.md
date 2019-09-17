@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.3.0...malmo@2.3.1) (2019-09-17)
+
+
+### Bug Fixes
+
+* **watch:** add extension to emptyModule path to prevent a missing module error from node-watch ([71829a3](https://github.com/lorenzomigliorero/malmo/commit/71829a3))
+
+
+
+
+
 # [2.3.0](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.2.1...malmo@2.3.0) (2019-09-17)
 
 
