@@ -18,7 +18,7 @@ module.exports = () => {
       : undefined,
     malmoCliRoot: path.resolve(__dirname, '../../'),
     malmoCliNodeModules: path.resolve(__dirname, '../../node_modules'),
-    emptyModule: path.resolve(__dirname, '../shims/module'),
+    emptyModule: path.resolve(__dirname, '../shims/module.js'),
     modernizr: fs.existsSync(`${PWD}/.modernizrrc.js`)
       ? path.resolve(PWD, '.modernizrrc.js')
       : undefined,
