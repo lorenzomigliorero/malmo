@@ -4,8 +4,8 @@ const {
   labels,
   ansiHeaderLog,
 } = require('@malmo/cli-utils/log');
-const { configFileName } = require('../constants/config');
-const commands = require('../constants/commands');
+const { configFileName } = require('../constants');
+const commands = require('../modules/commands');
 const mainPackage = require('../../package.json');
 
 module.exports = ({
@@ -48,6 +48,11 @@ module.exports = ({
             description: labels['options.version'],
           },
           {
+            name: 'watch',
+            alias: 'w',
+            description: labels['options.watch'],
+          },
+          {
             name: 'env',
             typeLabel: '[key]',
             description: labels['options.env']({ configFileName }),
@@ -62,7 +67,7 @@ module.exports = ({
             summary: labels['examples.init'],
           },
           {
-            name: chalk.bold('malmo dev --env development'),
+            name: chalk.bold('malmo dev --env development --watch'),
             summary: labels['examples.dev'],
           },
           {

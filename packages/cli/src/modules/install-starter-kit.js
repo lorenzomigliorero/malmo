@@ -2,7 +2,7 @@ const {
   execSheelCommand,
   promiseSerial,
 } = require('@malmo/cli-utils');
-const { configFileName } = require('../constants/config');
+const { configFileName } = require('../constants');
 
 module.exports = ({
   npmClient,

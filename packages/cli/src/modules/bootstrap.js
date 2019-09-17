@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 const { address } = require('ip');
 const { existsSync } = require('fs');
 const { setAlias } = require('node-require-alias');
@@ -11,7 +12,7 @@ const {
 module.exports = async () => {
   const validate = require('./validate');
 
-  const { aliasDependencies } = require('../constants/config');
+  const { aliasDependencies } = require('../constants');
 
   process.on('unhandledRejection', (error) => {
     console.error(error);
@@ -36,15 +37,20 @@ module.exports = async () => {
   process.env.IP = process.env.IP || address();
   process.env.PORT = process.env.PORT || await getFreePort();
 
-  const { standard, _all: { command }, _unknown } = global.ARGS;
-  const option = Object.keys(standard)[0];
-  let module = command || option;
+  const { single, _all: { command, watch }, _unknown } = global.ARGS;
+  const option = Object.keys(single)[0];
 
   if (command || option || _unknown) {
     validate();
-  } else {
-    module = 'help';
   }
 
-  require(`../${module === 'help' || module === 'version' ? 'scripts' : 'commands'}/${module}`)();
+  const module = command === 'dev' && watch
+    ? '../options/watch'
+    : command
+      ? `../commands/${command}`
+      : option
+        ? `../options/${option}`
+        : '../options/help';
+
+  require(module)();
 };

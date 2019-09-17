@@ -1,24 +1,31 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
-const { getMergedConfig } = require('@malmo/cli-utils');
 const commonConfig = require('./common');
-const loadersConfig = require('./loaders');
-const pluginsConfig = require('./plugins');
 
-module.exports = () => {
+module.exports = (constants) => {
+  delete process.env.SERVER;
+
   const {
     client,
-    customConstants,
     htmlIndex,
-    loadersConfigPath,
-    pluginsConfigPath,
     modernizr,
     path,
     projectType,
     pwdNodeModules,
-    webpackConfigPath,
-  } = require('../constants');
+    getPluginsConfig,
+    getLoadersConfig,
+    getWebpackConfig,
+  } = constants;
+
+  const pluginsConfig = getPluginsConfig();
+
+  const {
+    miniCssExtractPlugin,
+    htmlWebpackPlugin,
+  } = pluginsConfig;
+
+  const loadersConfig = getLoadersConfig();
 
   const {
     css,
@@ -27,22 +34,15 @@ module.exports = () => {
     postcss,
     postcssNodeModules,
     cssHot,
-  } = getMergedConfig({
-    baseConfig: loadersConfig(customConstants),
-    configPath: loadersConfigPath,
-    params: customConstants,
+  } = loadersConfig;
+
+  let config = commonConfig({
+    pluginsConfig,
+    loadersConfig,
+    ...constants,
   });
 
-  const {
-    miniCssExtractPlugin,
-    htmlWebpackPlugin,
-  } = getMergedConfig({
-    baseConfig: pluginsConfig(customConstants),
-    configPath: pluginsConfigPath,
-    params: customConstants,
-  });
-
-  let config = merge(commonConfig(), {
+  config = merge(config, {
     name: 'client',
     target: 'web',
     entry: { [projectType === 'library' ? 'index' : 'main']: [client] },
@@ -134,9 +134,5 @@ module.exports = () => {
     });
   }
 
-  return getMergedConfig({
-    baseConfig: config,
-    configPath: webpackConfigPath,
-    params: customConstants,
-  });
+  return getWebpackConfig(config);
 };

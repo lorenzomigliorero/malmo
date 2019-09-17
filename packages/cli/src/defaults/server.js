@@ -1,24 +1,26 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const { getMergedConfig } = require('@malmo/cli-utils');
 const commonConfig = require('./common');
-const loadersConfig = require('./loaders');
 
-module.exports = () => {
+module.exports = (constants) => {
   process.env.SERVER = true;
 
   const {
-    customConstants,
     dist,
     emptyModule,
     expressConfigPath,
-    loadersConfigPath,
     modernizr,
     pwdNodeModules,
     serverEntry,
     serverRender,
-    webpackConfigPath,
-  } = require('../constants');
+    getLoadersConfig,
+    getPluginsConfig,
+    getWebpackConfig,
+  } = constants;
+
+  const pluginsConfig = getPluginsConfig();
+
+  const loadersConfig = getLoadersConfig();
 
   const {
     css,
@@ -26,13 +28,15 @@ module.exports = () => {
     scss,
     postcss,
     postcssNodeModules,
-  } = getMergedConfig({
-    baseConfig: loadersConfig(customConstants),
-    configPath: loadersConfigPath,
-    params: customConstants,
+  } = loadersConfig;
+
+  let config = commonConfig({
+    pluginsConfig,
+    loadersConfig,
+    ...constants,
   });
 
-  let config = merge(commonConfig(), {
+  config = merge(config, {
     name: 'server',
     entry: process.env.NODE_ENV === 'development' ? serverRender : serverEntry,
     target: 'node',
@@ -116,9 +120,5 @@ module.exports = () => {
     });
   }
 
-  return getMergedConfig({
-    baseConfig: config,
-    configPath: webpackConfigPath,
-    params: customConstants,
-  });
+  return getWebpackConfig(config);
 };

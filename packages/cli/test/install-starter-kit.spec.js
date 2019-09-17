@@ -1,4 +1,4 @@
-const installStarterKit = require('../src/scripts/install-starter-kit');
+const installStarterKit = require('../src/modules/install-starter-kit');
 
 jest.mock(`${process.env.PWD}/malmo.config.js`, () => () => ({
   command: {

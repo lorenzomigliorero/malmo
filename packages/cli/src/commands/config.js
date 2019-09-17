@@ -1,4 +1,4 @@
 module.exports = () => {
-  const constants = require('../constants');
-  console.log(JSON.stringify(constants, null, 4));
+  const configuration = require('../modules/configuration')();
+  console.log(JSON.stringify(configuration, null, 4));
 };

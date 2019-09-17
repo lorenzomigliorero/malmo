@@ -1,10 +1,13 @@
 module.exports = async () => {
   process.env.NODE_ENV = 'production';
 
-  const { projectType } = require('../constants');
+  const configuration = require('../modules/configuration')();
+  const { projectType } = configuration;
 
-  await require('../scripts/compilation')([
-    require('../config/client')(),
-    projectType === 'ssr' ? require('../config/server')() : undefined,
-  ].filter(Boolean));
+  const defaults = [require('../defaults/client')(configuration)];
+  if (projectType === 'ssr') {
+    defaults.push(require('../defaults/server')(configuration));
+  }
+
+  await require('../modules/compilation')(defaults, configuration);
 };

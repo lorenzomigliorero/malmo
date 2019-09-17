@@ -1,5 +1,5 @@
 const bddStdin = require('bdd-stdin');
-const prompt = require('../src/scripts/prompt');
+const prompt = require('../src/modules/prompt');
 
 jest.mock('@malmo/cli-utils', () => ({
   getGlobalStarterKits: jest.fn(() => [

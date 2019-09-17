@@ -15,11 +15,13 @@
   },
   "dependencies": {
     "chalk": "^2.4.1",
+    "clear-module": "^4.0.0",
     "cli-table2": "^0.2.0",
     "command-line-args": "^5.0.2",
     "exception-formatter": "^1.0.7",
     "global-dirs": "^0.1.1",
     "lodash": "^4.17.11",
+    "node-watch": "^0.6.3",
     "npm-node-utils": "^1.5.3",
     "opener": "^1.5.1",
     "portfinder": "^1.0.19",

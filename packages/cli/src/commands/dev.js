@@ -1,5 +1,5 @@
 const express = require('express');
-const { openBrowser } = require('@malmo/cli-utils');
+const { openBrowser, importFresh } = require('@malmo/cli-utils');
 const {
   preServerRender,
   postServerRender,
@@ -8,20 +8,27 @@ const {
 module.exports = async () => {
   process.env.NODE_ENV = 'development';
 
+  const configuration = require('../modules/configuration')();
+
   const {
     port,
     root,
     projectType,
     expressConfigPath,
     ...customConstants
-  } = require('../constants');
+  } = configuration;
 
-  const expressConfig = require(expressConfigPath);
+  const expressConfig = importFresh(expressConfigPath);
 
-  const { router } = await require('../scripts/compilation')([
-    require('../config/client.hmr')(),
-    projectType === 'ssr' ? require('../config/server')() : undefined,
-  ].filter(Boolean));
+  const defaults = [require('../defaults/client.hmr')(configuration)];
+  if (projectType === 'ssr') {
+    defaults.push(require('../defaults/server')(configuration));
+  }
+
+  const {
+    router,
+    devMiddleware,
+  } = await require('../modules/compilation')(defaults, configuration);
 
   let app = express();
 
@@ -35,7 +42,11 @@ module.exports = async () => {
 
   app = postServerRender(app);
 
-  app.listen(port);
+  const appInstance = await app.listen(port, openBrowser.bind(null, root));
 
-  openBrowser({ url: root });
+  return () => {
+    appInstance.close();
+    devMiddleware.close();
+    process.stdout.write('\x1Bc\x1B[3J');
+  };
 };

@@ -1,4 +1,4 @@
-const updatePackage = require('../src/scripts/update-package');
+const updatePackage = require('../src/modules/update-package');
 
 jest.mock('fs', () => new (require('memfs').Volume)());
 

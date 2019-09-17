@@ -1,12 +1,12 @@
 const fs = require('fs');
 const { getEmitter } = require('@malmo/cli-utils');
 const { labels } = require('@malmo/cli-utils/log');
-const { configFileName } = require('../constants/config');
-const commands = require('../constants/commands');
+const { configFileName } = require('../constants');
+const commands = require('./commands');
 
 module.exports = () => {
-  const { _all: { command }, env, _unknown, standard } = global.ARGS;
-  const existsValidOption = Object.keys(standard).length > 0;
+  const { _all: { command }, env, _unknown, single } = global.ARGS;
+  const existsValidOption = Object.keys(single).length > 0;
 
   /* Invalid command/option */
   if (!existsValidOption && (_unknown || (!commands.includes(command)))) {

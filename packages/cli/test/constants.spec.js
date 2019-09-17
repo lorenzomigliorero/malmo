@@ -22,7 +22,7 @@ describe('Normalize public path', () => {
         it('Starts with protocol', () => {
           global.malmoConfig = config;
           process.env.NODE_ENV = NODE_ENV;
-          const { publicPath } = require('../src/constants');
+          const { publicPath } = require('../src/modules/configuration')();
           expect(publicPath).toEqual(expect.stringMatching(/^[a-z0-9]+:\/\//));
         });
       }
@@ -30,13 +30,13 @@ describe('Normalize public path', () => {
         it('Not contains //', () => {
           global.malmoConfig = config;
           process.env.NODE_ENV = NODE_ENV;
-          const { publicPath } = require('../src/constants');
+          const { publicPath } = require('../src/modules/configuration')();
           expect(publicPath).toEqual(expect.not.stringContaining('//'));
         });
       }
       it('Assert that ends with /', () => {
         global.malmoConfig = config;
-        const { publicPath } = require('../src/constants');
+        const { publicPath } = require('../src/modules/configuration')();
         if (publicPath) {
           expect(publicPath.endsWith('/')).toBeTruthy();
         }
@@ -58,7 +58,7 @@ describe('Object merging', () => {
         },
       },
     };
-    const { customConstants } = require('../src/constants');
+    const { customConstants } = require('../src/modules/configuration')();
     expect(customConstants).toMatchObject({
       foo: 1,
       bar: 2,

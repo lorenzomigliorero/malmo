@@ -3,45 +3,26 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { omit } = require('lodash');
 const merge = require('webpack-merge');
 const path = require('path');
-const {
-  getIncludeArrayFromLoaderOption,
-  getMergedConfig,
-} = require('@malmo/cli-utils');
-const loadersConfig = require('./loaders');
-const pluginsConfig = require('./plugins');
+const { getIncludeArrayFromLoaderOption } = require('@malmo/cli-utils');
 
-module.exports = () => {
-  const {
-    appRootNodeModules,
-    assets,
-    bootstrapExpressApp,
-    common,
-    customConstants,
-    expressStaticFolder,
-    loadersConfigPath,
-    pluginsConfigPath,
-    malmoCliNodeModules,
-    modernizr,
-    port,
-    projectType,
-    publicPath,
-    pwdNodeModules,
-    root,
-    src,
-  } = require('../constants');
-
-  const { file, js } = getMergedConfig({
-    baseConfig: loadersConfig(customConstants),
-    configPath: loadersConfigPath,
-    params: customConstants,
-  });
-
-  const { uglifyJsPlugin } = getMergedConfig({
-    baseConfig: pluginsConfig(customConstants),
-    configPath: pluginsConfigPath,
-    params: customConstants,
-  });
-
+module.exports = ({
+  appRootNodeModules,
+  assets,
+  bootstrapExpressApp,
+  common,
+  customConstants,
+  expressStaticFolder,
+  malmoCliNodeModules,
+  modernizr,
+  port,
+  projectType,
+  publicPath,
+  pwdNodeModules,
+  root,
+  src,
+  loadersConfig: { file, js },
+  pluginsConfig: { uglifyJsPlugin },
+}) => {
   let config = {
     output: { publicPath },
     mode: process.env.NODE_ENV,

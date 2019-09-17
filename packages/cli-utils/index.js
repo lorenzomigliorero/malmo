@@ -1,3 +1,4 @@
+const watch = require('node-watch');
 const path = require('path');
 const { EventEmitter } = require('events');
 const {
@@ -13,6 +14,7 @@ const fs = require('fs');
 const commandLineArgs = require('command-line-args');
 const merge = require('webpack-merge');
 const portFinder = require('portfinder');
+const clearModule = require('clear-module');
 const { errorLog } = require('./log');
 
 const emitter = new EventEmitter();
@@ -37,7 +39,7 @@ const getRemoteStarterKits = async () => {
   return packages.filter(({ name }) => filterStarterKitName(name));
 };
 
-const openBrowser = ({ url }) => {
+const openBrowser = (url) => {
   if (process.platform === 'darwin') {
     try {
       execSync('ps cax | grep "Google Chrome"');
@@ -60,13 +62,18 @@ const getFreePort = (base) => {
   return portFinder.getPortPromise();
 };
 
+const importFresh = (modulePath) => {
+  clearModule(modulePath);
+  return require(modulePath);
+};
+
 const getMergedConfig = ({
   baseConfig = {},
   configPath,
   params = {},
 }) => {
   if (fs.existsSync(configPath)) {
-    let config = require(configPath);
+    let config = importFresh(configPath);
     if (typeof config === 'function') {
       config = config(params);
       if (typeof (config) === 'object') {
@@ -86,7 +93,7 @@ const getArgs = () => commandLineArgs([
   {
     name: 'help',
     alias: 'h',
-    group: 'standard',
+    group: 'single',
     type: Boolean,
   },
   {
@@ -97,21 +104,17 @@ const getArgs = () => commandLineArgs([
   {
     name: 'version',
     alias: 'v',
-    group: 'standard',
+    group: 'single',
+    type: Boolean,
+  },
+  {
+    name: 'watch',
+    alias: 'w',
     type: Boolean,
   },
 ], { stopAtFirstUnknown: true });
 
-const checkIfTargetIsLibrary = ({
-  webpackConfigPath,
-  customConstants,
-}) => {
-  const config = getMergedConfig({
-    configPath: webpackConfigPath,
-    params: customConstants,
-  });
-  return !!(config.output && config.output.library);
-};
+const checkIfTargetIsLibrary = config => !!(config.output && config.output.library);
 
 const catchEmitterErrors = () => {
   emitter.on('error', (err, { exit = true } = {}) => {
@@ -124,16 +127,12 @@ const getEmitter = () => emitter;
 
 const getProjectType = ({
   src,
-  webpackConfigPath,
-  customConstants,
+  webpackConfig,
 }) => {
   if (fs.existsSync(path.resolve(src, 'server'))) {
     return 'ssr';
   }
-  if (checkIfTargetIsLibrary({
-    webpackConfigPath,
-    customConstants,
-  })) {
+  if (checkIfTargetIsLibrary(webpackConfig)) {
     return 'library';
   }
   return 'client';
@@ -202,6 +201,22 @@ const promiseSerial = ({
     }),
   Promise.resolve([]));
 
+const watchFiles = async ({
+  files,
+  callback,
+}) => {
+  let reset;
+
+  watch(files.filter(Boolean), { recursive: false }, async () => {
+    if (typeof reset === 'function') {
+      reset();
+    }
+    reset = await callback();
+  });
+
+  reset = await callback();
+};
+
 module.exports = {
   catchEmitterErrors,
   checkIfTargetIsLibrary,
@@ -218,4 +233,6 @@ module.exports = {
   promiseSerial,
   readFilesSync,
   sortObject,
+  importFresh,
+  watchFiles,
 };

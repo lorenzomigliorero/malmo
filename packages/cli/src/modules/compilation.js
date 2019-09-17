@@ -11,20 +11,19 @@ const {
   compilationLog,
 } = require('@malmo/cli-utils/log');
 
-module.exports = async (config) => {
-  const {
-    clean,
-    projectType,
-    root,
-  } = require('../constants');
-
-  require('./help')({ minimal: true });
+module.exports = async (config, {
+  clean,
+  projectType,
+  root,
+  dist,
+}) => {
+  require('../options/help')({ minimal: true });
 
   const spinner = ora();
 
   if (clean) {
     spinner.start(labels['queue.clean']);
-    await require('./clean')();
+    await require('./clean')(dist);
     spinner.succeed();
   }
 
@@ -35,8 +34,9 @@ module.exports = async (config) => {
     /* Extract clientCompiler */
     const clientCompiler = multiCompiler.compilers.find(c => c.name === 'client');
 
-    /* Define router to pass later to resolve */
+    /* Define variables to pass later to resolve */
     let router;
+    let devMiddleware;
 
     /* Init progress log */
     spinner.start(labels['queue.startMulticompilerBuilds']());
@@ -51,16 +51,18 @@ module.exports = async (config) => {
     if (process.env.NODE_ENV === 'development') {
       router = express.Router();
 
+      devMiddleware = webpackDevMiddleware(multiCompiler, {
+        logLevel: 'silent',
+        publicPath: config[0].output.publicPath,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
+        },
+      });
+
       router.use([
         /* Dev middleware */
-        webpackDevMiddleware(multiCompiler, {
-          logLevel: 'silent',
-          publicPath: config[0].output.publicPath,
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
-          },
-        }),
+        devMiddleware,
         /* Hot middleware */
         webpackHotMiddleware(clientCompiler, { log: false }),
         /* Hot server middleware */
@@ -70,7 +72,7 @@ module.exports = async (config) => {
       /* Reset console on HMR */
       multiCompiler.hooks.watchRun.tap('watchRun', () => {
         process.stdout.write('\x1Bc\x1B[3J');
-        require('./help')({ minimal: true });
+        require('../options/help')({ minimal: true });
         spinner.start(labels['queue.startMulticompilerBuilds']());
       });
     } else {
@@ -106,6 +108,7 @@ module.exports = async (config) => {
 
       resolve({
         router,
+        devMiddleware,
         multiStats,
       });
     });
