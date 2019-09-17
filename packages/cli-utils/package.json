@@ -1,6 +1,6 @@
 {
   "name": "@malmo/cli-utils",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "A set of utilities used by @malmo-cli",
   "main": "index.js",
   "repository": {
