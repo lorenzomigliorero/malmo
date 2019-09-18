@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.3](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.3.2...malmo@2.3.3) (2019-09-18)
+
+
+### Bug Fixes
+
+* **configuration:** add missing parameters when create plugins configuration object ([a74c841](https://github.com/lorenzomigliorero/malmo/commit/a74c841))
+
+
+
+
+
 ## [2.3.2](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.3.1...malmo@2.3.2) (2019-09-18)
 
 
