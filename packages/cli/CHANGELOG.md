@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.2](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.3.1...malmo@2.3.2) (2019-09-18)
+
+
+### Bug Fixes
+
+* **init:** fix wrong help module path in init command ([be81098](https://github.com/lorenzomigliorero/malmo/commit/be81098))
+
+
+
+
+
 ## [2.3.1](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.3.0...malmo@2.3.1) (2019-09-17)
 
 

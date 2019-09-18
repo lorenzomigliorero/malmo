@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli-utils@1.4.0...@malmo/cli-utils@1.4.1) (2019-09-18)
+
+**Note:** Version bump only for package @malmo/cli-utils
+
+
+
+
+
 # [1.4.0](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli-utils@1.3.2...@malmo/cli-utils@1.4.0) (2019-09-17)
 
 
