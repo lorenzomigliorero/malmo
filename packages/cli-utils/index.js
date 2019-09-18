@@ -207,7 +207,7 @@ const watchFiles = async ({
 }) => {
   let reset;
 
-  watch(files.filter(Boolean), { recursive: false }, async () => {
+  watch(files, { recursive: false }, async () => {
     if (typeof reset === 'function') {
       reset();
     }
