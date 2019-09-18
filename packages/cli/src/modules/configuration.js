@@ -74,18 +74,8 @@ module.exports = () => {
   /* Merge overwritableConstants with constants */
   Object.assign(constants, overwritableConstants);
 
-  /* Require configuration */
+  /* Require webpack configuration */
   Object.assign(constants, {
-    getPluginsConfig: () => getMergedConfig({
-      baseConfig: require('../defaults/plugins')(customConstants),
-      configPath: constants.pluginsConfigPath,
-      params: customConstants,
-    }),
-    getLoadersConfig: () => getMergedConfig({
-      baseConfig: require('../defaults/loaders')(customConstants),
-      configPath: constants.loadersConfigPath,
-      params: customConstants,
-    }),
     getWebpackConfig: baseConfig => getMergedConfig({
       baseConfig,
       configPath: constants.webpackConfigPath,
@@ -140,6 +130,20 @@ module.exports = () => {
     root: constants.root || `http://${IP}:${constants.port}`,
     /* publicPath will be prepended on every required assets, example: /{publicPath}/main.js */
     publicPath: NODE_ENV === 'development' ? `http://${IP}:${constants.port}/` : constants.publicPath,
+  });
+
+  /* Require other configurations */
+  Object.assign(constants, {
+    getPluginsConfig: () => getMergedConfig({
+      baseConfig: require('../defaults/plugins')(constants),
+      configPath: constants.pluginsConfigPath,
+      params: customConstants,
+    }),
+    getLoadersConfig: () => getMergedConfig({
+      baseConfig: require('../defaults/loaders')(constants),
+      configPath: constants.loadersConfigPath,
+      params: customConstants,
+    }),
   });
 
   if (constants.browserListConfigPath) {

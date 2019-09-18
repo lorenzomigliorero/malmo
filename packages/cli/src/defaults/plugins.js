@@ -26,5 +26,5 @@ module.exports = ({
       output: { comments: false },
     },
   },
-  htmlPlugin: { template: htmlIndex },
+  htmlWebpackPlugin: { template: htmlIndex },
 });
