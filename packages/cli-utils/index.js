@@ -123,8 +123,6 @@ const catchEmitterErrors = () => {
   });
 };
 
-const getEmitter = () => emitter;
-
 const getProjectType = ({
   src,
   webpackConfig,
@@ -222,7 +220,7 @@ module.exports = {
   checkIfTargetIsLibrary,
   execSheelCommand,
   getArgs,
-  getEmitter,
+  emitter,
   getFreePort,
   getGlobalStarterKits,
   getIncludeArrayFromLoaderOption,

@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const {
-  getEmitter,
+  emitter,
   getRemoteStarterKits,
   getGlobalStarterKits,
 } = require('@malmo/cli-utils');
@@ -29,7 +29,7 @@ module.exports = async ({ npmClient } = {}) => {
     extended: true,
   });
   if (remote.length + local.length === 0) {
-    getEmitter().emit('error', new Error(labels['error.missingGlobalStarterKit']()));
+    emitter.emit('error', new Error(labels['error.missingGlobalStarterKit']()));
   }
   // Exclude localPackages from remote list
   const localNames = local.map(({ name }) => name);
