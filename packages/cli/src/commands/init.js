@@ -3,7 +3,7 @@ const { checkIfPackageIsGloballyInstalled } = require('npm-node-utils');
 const { labels } = require('@malmo/cli-utils/log');
 
 module.exports = async () => {
-  require('../modules/help')({
+  require('../options/help')({
     minimal: true,
     appendToDescription: labels['init.start'],
   });
