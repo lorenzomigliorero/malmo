@@ -1,15 +1,9 @@
 const watch = require('node-watch');
 const path = require('path');
 const { EventEmitter } = require('events');
-const {
-  getGlobalPackages,
-  getRemotePackages,
-} = require('npm-node-utils');
+const { getGlobalPackages, getRemotePackages } = require('npm-node-utils');
 const opener = require('opener');
-const {
-  execSync,
-  exec,
-} = require('child_process');
+const { execSync, exec } = require('child_process');
 const fs = require('fs');
 const commandLineArgs = require('command-line-args');
 const merge = require('webpack-merge');

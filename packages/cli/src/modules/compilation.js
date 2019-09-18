@@ -6,10 +6,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackHotServerMiddleware = require('webpack-hot-server-middleware');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
-const {
-  multiCompilerErrorHandler,
-  compilationLog,
-} = require('@malmo/cli-utils/log');
+const { multiCompilerErrorHandler, compilationLog } = require('@malmo/cli-utils/log');
 
 module.exports = async (config, {
   clean,

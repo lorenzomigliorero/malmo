@@ -1,9 +1,6 @@
 const express = require('express');
 const { openBrowser, importFresh } = require('@malmo/cli-utils');
-const {
-  preServerRender,
-  postServerRender,
-} = require('../middleware');
+const { preServerRender, postServerRender } = require('../middleware');
 
 module.exports = async () => {
   process.env.NODE_ENV = 'development';

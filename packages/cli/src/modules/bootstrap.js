@@ -3,11 +3,7 @@ const { address } = require('ip');
 const { existsSync } = require('fs');
 const { setAlias } = require('node-require-alias');
 const { path: rootPath } = require('app-root-path');
-const {
-  getArgs,
-  catchEmitterErrors,
-  getFreePort,
-} = require('@malmo/cli-utils');
+const { getArgs, catchEmitterErrors, getFreePort } = require('@malmo/cli-utils');
 
 module.exports = async () => {
   const validate = require('./validate');

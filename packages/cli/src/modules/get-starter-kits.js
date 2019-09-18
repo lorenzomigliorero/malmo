@@ -1,9 +1,5 @@
 const inquirer = require('inquirer');
-const {
-  emitter,
-  getRemoteStarterKits,
-  getGlobalStarterKits,
-} = require('@malmo/cli-utils');
+const { emitter, getRemoteStarterKits, getGlobalStarterKits } = require('@malmo/cli-utils');
 const { labels } = require('@malmo/cli-utils/log');
 
 const getInquirerChoice = ({

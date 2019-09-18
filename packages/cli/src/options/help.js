@@ -1,9 +1,6 @@
 const commandLineUsage = require('command-line-usage');
 const chalk = require('chalk');
-const {
-  labels,
-  ansiHeaderLog,
-} = require('@malmo/cli-utils/log');
+const { labels, ansiHeaderLog } = require('@malmo/cli-utils/log');
 const { configFileName } = require('../constants');
 const commands = require('../modules/commands');
 const mainPackage = require('../../package.json');
