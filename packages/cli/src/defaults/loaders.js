@@ -39,9 +39,8 @@ module.exports = ({
     plugins: [
       [require('@babel/plugin-proposal-decorators').default, { legacy: true }],
       require('@babel/plugin-proposal-class-properties').default,
-      require('@babel/plugin-proposal-object-rest-spread').default,
       require('@babel/plugin-proposal-optional-chaining').default,
-      require('@babel/plugin-transform-async-to-generator').default,
+      require('@babel/plugin-proposal-nullish-coalescing-operator').default,
       [require('@babel/plugin-transform-runtime').default],
     ],
   },
