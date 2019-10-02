@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.3.3...malmo@2.4.0) (2019-10-02)
+
+
+### Bug Fixes
+
+* **babel:** remove unuseless babel plugin, already included in babel preset env ([b06cf20](https://github.com/lorenzomigliorero/malmo/commit/b06cf20))
+
+
+### Features
+
+* **watch:** add .browserlistrc as watched file ([bb32445](https://github.com/lorenzomigliorero/malmo/commit/bb32445))
+
+
+
+
+
 ## [2.3.3](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.3.2...malmo@2.3.3) (2019-09-18)
 
 
