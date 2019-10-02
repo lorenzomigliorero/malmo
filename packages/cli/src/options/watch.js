@@ -8,6 +8,7 @@ module.exports = async () => {
     loadersConfigPath,
     pluginsConfigPath,
     expressConfigPath,
+    browserListConfigPath,
   } = require('../modules/configuration')();
 
   watchFiles({
@@ -17,6 +18,7 @@ module.exports = async () => {
       loadersConfigPath,
       pluginsConfigPath,
       expressConfigPath,
+      browserListConfigPath,
     ].filter(Boolean),
     callback: dev,
   });
