@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.4.0...malmo@2.4.1) (2019-11-28)
+
+
+### Bug Fixes
+
+* **mini-css-extract-plugin:** update for support support ignoreOrder flag" ([e0a77f0](https://github.com/lorenzomigliorero/malmo/commit/e0a77f0))
+
+
+
+
+
 # [2.4.0](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.3.3...malmo@2.4.0) (2019-10-02)
 
 
