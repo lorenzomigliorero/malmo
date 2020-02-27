@@ -209,6 +209,27 @@ const watchFiles = async ({
   reset = await callback();
 };
 
+const getWorkSpacesRoot = (directory = __dirname) => {
+  if (directory === '/') {
+    return false;
+  }
+
+  const packageJSONPath = path.join(directory, 'package.json');
+
+  try {
+    fs.accessSync(packageJSONPath, fs.constants.F_OK);
+    const packageJSON = require(packageJSONPath);
+
+    if (!packageJSON.workspaces) {
+      return getWorkSpacesRoot(path.dirname(directory));
+    }
+
+    return path.dirname(packageJSONPath);
+  } catch (err) {
+    return getWorkSpacesRoot(path.dirname(directory));
+  }
+};
+
 module.exports = {
   catchEmitterErrors,
   checkIfTargetIsLibrary,
@@ -219,6 +240,7 @@ module.exports = {
   getGlobalStarterKits,
   getIncludeArrayFromLoaderOption,
   getMergedConfig,
+  getWorkSpacesRoot,
   getProjectType,
   getRemoteStarterKits,
   openBrowser,
