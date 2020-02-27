@@ -2,8 +2,7 @@ const path = require('path');
 const { omit } = require('lodash');
 const url = require('url');
 const fs = require('fs');
-const { path: appRootPath } = require('app-root-path');
-const { importFresh, getMergedConfig, getProjectType, sortObject } = require('@malmo/cli-utils');
+const { importFresh, getMergedConfig, getProjectType, sortObject, getWorkSpacesRoot } = require('@malmo/cli-utils');
 const configFileNames = require('../constants');
 
 module.exports = () => {
@@ -11,8 +10,13 @@ module.exports = () => {
 
   const { ARGS } = global;
 
+  const worksSpacesRoot = getWorkSpacesRoot(PWD);
+
   const constants = {
-    appRootNodeModules: `${appRootPath}/node_modules`,
+    appRootNodeModules: `${getWorkSpacesRoot()}/node_modules`,
+    workSpacesNodeModules: worksSpacesRoot
+      ? `${worksSpacesRoot}/node_modules`
+      : undefined,
     browserListConfigPath: fs.existsSync(`${PWD}/.browserslistrc`)
       ? `${PWD}/.browserslistrc`
       : undefined,

@@ -20,6 +20,7 @@ module.exports = ({
   pwdNodeModules,
   root,
   src,
+  workSpacesNodeModules,
   loadersConfig: { file, js },
   pluginsConfig: { uglifyJsPlugin },
 }) => {
@@ -61,16 +62,18 @@ module.exports = ({
       alias: { '@': common },
       modules: [
         pwdNodeModules,
-        appRootNodeModules,
+        workSpacesNodeModules,
         malmoCliNodeModules,
-      ],
+        appRootNodeModules,
+      ].filter(Boolean),
     },
     resolveLoader: {
       modules: [
         pwdNodeModules,
-        appRootNodeModules,
+        workSpacesNodeModules,
         malmoCliNodeModules,
-      ],
+        appRootNodeModules,
+      ].filter(Boolean),
     },
     plugins: [
       new webpack.EnvironmentPlugin(['NODE_ENV', 'IP', process.env.NODE_ENV === 'development' ? 'PORT' : undefined].filter(Boolean)),
