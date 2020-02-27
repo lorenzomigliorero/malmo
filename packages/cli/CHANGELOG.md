@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.4.1...malmo@2.5.0) (2020-02-27)
+
+
+### Features
+
+* **workspaces:** add workspaces node-modules in resolve and resolve-loader configurations ([4106ef7](https://github.com/lorenzomigliorero/malmo/commit/4106ef7))
+
+
+
+
+
 ## [2.4.1](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.4.0...malmo@2.4.1) (2019-11-28)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "malmo",
-  "version": "2.4.1",
+  "version": "2.5.0",
   "description": "A cli interface to build Javascript applications with zero configuration.",
   "bin": {
     "malmo": "./bin/malmo.js"
@@ -27,7 +27,7 @@
     "@babel/plugin-proposal-optional-chaining": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.6",
-    "@malmo/cli-utils": "^1.4.1",
+    "@malmo/cli-utils": "^1.5.0",
     "babel-loader": "^8.0.4",
     "chalk": "^2.4.1",
     "command-line-usage": "^5.0.5",
