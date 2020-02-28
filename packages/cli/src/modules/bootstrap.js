@@ -2,7 +2,7 @@
 const { address } = require('ip');
 const { existsSync } = require('fs');
 const { setAlias } = require('node-require-alias');
-const { getArgs, catchEmitterErrors, getFreePort, getWorkSpacesRoot } = require('@malmo/cli-utils');
+const { getArgs, catchEmitterErrors, getFreePort, getAppRoot, getWorkSpacesRoot } = require('@malmo/cli-utils');
 
 module.exports = async () => {
   const validate = require('./validate');
@@ -15,7 +15,7 @@ module.exports = async () => {
 
   catchEmitterErrors();
 
-  const rootPath = getWorkSpacesRoot();
+  const rootPath = getAppRoot();
 
   /* Map cli modules to project */
   setAlias(aliasDependencies.reduce((obj, key) => {
