@@ -1,6 +1,6 @@
 {
   "name": "@malmo/react-redux-universal-starter-kit",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A @malmo starter-kit for build universal React web applications",
   "main": "index.js",
   "repository": {
@@ -16,7 +16,7 @@
   "dependencies": {
     "@babel/core": "^7.8.6",
     "@babel/preset-react": "^7.8.3",
-    "@malmo/eslint-config": "^1.0.7",
+    "@malmo/eslint-config": "^1.0.8",
     "@malmo/welcome-react": "^1.0.3",
     "axios": "^0.19.2",
     "express": "^4.16.4",
