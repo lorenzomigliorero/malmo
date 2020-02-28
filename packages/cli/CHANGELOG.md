@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.2](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.5.1...malmo@2.5.2) (2020-02-28)
+
+
+### Bug Fixes
+
+* **deps:** updated deps ([6849d17](https://github.com/lorenzomigliorero/malmo/commit/6849d176481c3d97254f56acfdbcdf5d5c4c3424))
+
+
+
+
+
 ## [2.5.1](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.5.0...malmo@2.5.1) (2020-02-28)
 
 
