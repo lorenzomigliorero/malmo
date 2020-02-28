@@ -1,6 +1,6 @@
 {
   "name": "@malmo/react-starter-kit",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A @malmo starter-kit for build React web applications",
   "main": "index.js",
   "repository": {
@@ -22,7 +22,7 @@
     "react-dom": "^16.6.3"
   },
   "devDependencies": {
-    "@malmo/eslint-config": "^1.0.6",
+    "@malmo/eslint-config": "^1.0.7",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1"
   }

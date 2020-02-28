@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/lorenzomigliorero/malmo/compare/@malmo/eslint-config@1.0.6...@malmo/eslint-config@1.0.7) (2020-02-28)
+
+
+### Bug Fixes
+
+* **deps:** replace peer deps with dev deeps ([0aa4a5f](https://github.com/lorenzomigliorero/malmo/commit/0aa4a5f3cd5d3ef3a17caf9da4d0893aaf2057b4))
+
+
+
+
+
 ## [1.0.6](https://github.com/lorenzomigliorero/malmo/compare/@malmo/eslint-config@1.0.5...@malmo/eslint-config@1.0.6) (2018-12-07)
 
 
