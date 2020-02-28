@@ -7,6 +7,7 @@ const { execSync, exec } = require('child_process');
 const fs = require('fs');
 const commandLineArgs = require('command-line-args');
 const merge = require('webpack-merge');
+const appRootPath = require('app-root-path');
 const portFinder = require('portfinder');
 const clearModule = require('clear-module');
 const { errorLog } = require('./log');
@@ -209,8 +210,12 @@ const watchFiles = async ({
   reset = await callback();
 };
 
+const getAppRoot = () => appRootPath.path;
+
 const getWorkSpacesRoot = (directory = __dirname) => {
-  if (directory === '/') {
+  const { root, dir } = path.parse(directory);
+
+  if (root === dir) {
     return false;
   }
 
@@ -233,20 +238,21 @@ const getWorkSpacesRoot = (directory = __dirname) => {
 module.exports = {
   catchEmitterErrors,
   checkIfTargetIsLibrary,
-  execSheelCommand,
-  getArgs,
   emitter,
+  execSheelCommand,
+  getAppRoot,
+  getArgs,
   getFreePort,
   getGlobalStarterKits,
   getIncludeArrayFromLoaderOption,
   getMergedConfig,
-  getWorkSpacesRoot,
   getProjectType,
   getRemoteStarterKits,
+  getWorkSpacesRoot,
+  importFresh,
   openBrowser,
   promiseSerial,
   readFilesSync,
   sortObject,
-  importFresh,
   watchFiles,
 };
