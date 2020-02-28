@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/lorenzomigliorero/malmo/compare/@malmo/react-redux-universal-starter-kit@1.0.7...@malmo/react-redux-universal-starter-kit@1.0.8) (2020-02-28)
+
+
+### Bug Fixes
+
+* **npm:** move @malmo/eslint-config in devDep ([cf8a7bb](https://github.com/lorenzomigliorero/malmo/commit/cf8a7bb55a016cbb41b88caacc60d4e490c5332f))
+
+
+
+
+
 ## [1.0.7](https://github.com/lorenzomigliorero/malmo/compare/@malmo/react-redux-universal-starter-kit@1.0.6...@malmo/react-redux-universal-starter-kit@1.0.7) (2020-02-28)
 
 **Note:** Version bump only for package @malmo/react-redux-universal-starter-kit
