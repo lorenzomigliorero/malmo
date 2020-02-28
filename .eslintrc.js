@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['airbnb-base'],
+  extends: ['airbnb'],
   env: { jest: true },
   rules: {
     'no-console': 0,

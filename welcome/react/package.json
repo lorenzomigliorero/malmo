@@ -9,8 +9,6 @@
     "access": "public"
   },
   "peerDependencies": {
-    "eslint": "^4.19.1 || ^5.3.0",
-    "eslint-config-airbnb": "^17.1.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3"
   },
