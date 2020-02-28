@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli-utils@1.5.0...@malmo/cli-utils@1.6.0) (2020-02-28)
+
+
+### Features
+
+* **app-root-path:** add app-root-path method ([52bd9a5](https://github.com/lorenzomigliorero/malmo/commit/52bd9a5))
+
+
+
+
+
 # [1.5.0](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli-utils@1.4.1...@malmo/cli-utils@1.5.0) (2020-02-27)
 
 

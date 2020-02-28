@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.1](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.5.0...malmo@2.5.1) (2020-02-28)
+
+
+### Bug Fixes
+
+* **rootpath:** replace rootpath from app-root-path module ([eec25a6](https://github.com/lorenzomigliorero/malmo/commit/eec25a6))
+* **workspaces:** fix workspaces and app-root configuration path ([d259d3a](https://github.com/lorenzomigliorero/malmo/commit/d259d3a))
+
+
+
+
+
 # [2.5.0](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.4.1...malmo@2.5.0) (2020-02-27)
 
 
