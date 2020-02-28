@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/lorenzomigliorero/malmo/compare/@malmo/eslint-config@1.0.8...@malmo/eslint-config@1.0.9) (2020-02-28)
+
+
+### Bug Fixes
+
+* **npm:** bump deps ([4855365](https://github.com/lorenzomigliorero/malmo/commit/48553659c8937e814befc05c8d237feed7168619))
+
+
+
+
+
 ## [1.0.8](https://github.com/lorenzomigliorero/malmo/compare/@malmo/eslint-config@1.0.7...@malmo/eslint-config@1.0.8) (2020-02-28)
 
 

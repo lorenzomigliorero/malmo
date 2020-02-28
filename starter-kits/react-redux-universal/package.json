@@ -1,6 +1,6 @@
 {
   "name": "@malmo/react-redux-universal-starter-kit",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A @malmo starter-kit for build universal React web applications",
   "main": "index.js",
   "repository": {
@@ -29,7 +29,7 @@
     "webpack-flush-chunks": "^2.0.3"
   },
   "devDependencies": {
-    "@malmo/eslint-config": "^1.0.8",
+    "@malmo/eslint-config": "^1.0.9",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1"
