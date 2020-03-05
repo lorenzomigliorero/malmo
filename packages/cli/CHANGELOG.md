@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.3](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.5.2...malmo@2.5.3) (2020-03-05)
+
+
+### Bug Fixes
+
+* **loader:** fix resolve-loader folders order ([50d6046](https://github.com/lorenzomigliorero/malmo/commit/50d604643ae27aed75d3f4e08da50285d21abd78))
+
+
+
+
+
 ## [2.5.2](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.5.1...malmo@2.5.2) (2020-02-28)
 
 
