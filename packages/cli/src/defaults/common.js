@@ -69,10 +69,10 @@ module.exports = ({
     },
     resolveLoader: {
       modules: [
-        pwdNodeModules,
-        workSpacesNodeModules,
         malmoCliNodeModules,
         appRootNodeModules,
+        pwdNodeModules,
+        workSpacesNodeModules,
       ].filter(Boolean),
     },
     plugins: [
