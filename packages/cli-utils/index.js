@@ -68,12 +68,21 @@ const getMergedConfig = ({
   params = {},
 }) => {
   if (fs.existsSync(configPath)) {
-    let config = importFresh(configPath);
+    const configFactory = importFresh(configPath);
+    let config = configFactory;
+
     if (typeof config === 'function') {
       config = config(params);
-      if (typeof (config) === 'object') {
-        return merge(baseConfig, config);
+    }
+
+    if (Object.prototype.toString.apply(config) === '[object Object]') {
+      let { strategy } = configFactory;
+
+      if (typeof strategy === 'function') {
+        strategy = strategy(params);
       }
+
+      return merge.strategy(strategy)(baseConfig, config);
     }
   }
   return baseConfig;
