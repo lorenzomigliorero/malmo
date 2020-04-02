@@ -1,5 +1,5 @@
 const express = require('express');
-const { openBrowser, getMergedConfig } = require('@malmo/cli-utils');
+const { openBrowser, importFresh } = require('@malmo/cli-utils');
 const { preServerRender, postServerRender } = require('../middleware');
 
 module.exports = async () => {
@@ -15,7 +15,7 @@ module.exports = async () => {
     ...customConstants
   } = configuration;
 
-  const expressConfig = getMergedConfig({ configPath: expressConfigPath });
+  const expressConfig = importFresh(expressConfigPath);
 
   const defaults = [require('../defaults/client.hmr')(configuration)];
   if (projectType === 'ssr') {
