@@ -1,9 +1,12 @@
-jest.mock(`${process.env.PWD}/malmo.config.js`, () => () => global.malmoConfig, { virtual: true });
+jest.mock('fs');
 
 beforeEach(() => {
   jest.resetModules();
+  jest.resetAllMocks();
   delete global.ARGS.env;
 });
+
+const CONFIG_PATH = `${process.env.PWD}/malmo.config.js`;
 
 describe('Normalize public path', () => {
   [
@@ -17,10 +20,12 @@ describe('Normalize public path', () => {
       { publicPath: 'foo/bar' },
       { publicPath: 'foo/bar/' },
       { publicPath: 'foo//bar/' },
-    ].forEach((config) => {
+    ].forEach((mockConfig) => {
       if (NODE_ENV === 'development') {
         it('Starts with protocol', () => {
-          global.malmoConfig = config;
+          require('fs').createMockFiles({ [CONFIG_PATH]: mockConfig });
+          jest.mock(CONFIG_PATH, () => () => mockConfig, { virtual: true });
+
           process.env.NODE_ENV = NODE_ENV;
           const { publicPath } = require('../src/modules/configuration')();
           expect(publicPath).toEqual(expect.stringMatching(/^[a-z0-9]+:\/\//));
@@ -28,14 +33,18 @@ describe('Normalize public path', () => {
       }
       if (NODE_ENV === 'production') {
         it('Not contains //', () => {
-          global.malmoConfig = config;
+          require('fs').createMockFiles({ [CONFIG_PATH]: mockConfig });
+          jest.mock(CONFIG_PATH, () => () => mockConfig, { virtual: true });
+
           process.env.NODE_ENV = NODE_ENV;
           const { publicPath } = require('../src/modules/configuration')();
           expect(publicPath).toEqual(expect.not.stringContaining('//'));
         });
       }
       it('Assert that ends with /', () => {
-        global.malmoConfig = config;
+        require('fs').createMockFiles({ [CONFIG_PATH]: mockConfig });
+        jest.mock(CONFIG_PATH, () => () => mockConfig, { virtual: true });
+
         const { publicPath } = require('../src/modules/configuration')();
         if (publicPath) {
           expect(publicPath.endsWith('/')).toBeTruthy();
@@ -48,7 +57,7 @@ describe('Normalize public path', () => {
 describe('Object merging', () => {
   it('config overwrite by env', () => {
     global.ARGS._all.env = 'stage'; // eslint-disable-line
-    global.malmoConfig = {
+    const mockConfig = {
       foo: 0,
       env: {
         stage: {
@@ -58,10 +67,20 @@ describe('Object merging', () => {
         },
       },
     };
+    require('fs').createMockFiles({ [CONFIG_PATH]: mockConfig });
+    jest.mock(CONFIG_PATH, () => () => mockConfig, { virtual: true });
     const { customConstants } = require('../src/modules/configuration')();
     expect(customConstants).toMatchObject({
       foo: 1,
       bar: 2,
     });
+  });
+
+  it('config as object', () => {
+    const mockConfig = { foo: 0 };
+    require('fs').createMockFiles({ [CONFIG_PATH]: mockConfig });
+    jest.mock(CONFIG_PATH, () => mockConfig, { virtual: true });
+    const { customConstants } = require('../src/modules/configuration')();
+    expect(customConstants).toMatchObject({ foo: 0 });
   });
 });
