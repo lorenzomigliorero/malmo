@@ -2,7 +2,7 @@ const path = require('path');
 const { omit } = require('lodash');
 const url = require('url');
 const fs = require('fs');
-const { importFresh, getMergedConfig, getProjectType, sortObject, getAppRoot, getWorkSpacesRoot } = require('@malmo/cli-utils');
+const { getMergedConfig, getProjectType, sortObject, getAppRoot, getWorkSpacesRoot } = require('@malmo/cli-utils');
 const configFileNames = require('../constants');
 
 module.exports = () => {
@@ -60,7 +60,7 @@ module.exports = () => {
   });
 
   /* Require createConfig from pwd */
-  const config = importFresh(constants.configPath)();
+  const config = getMergedConfig({ configPath: constants.configPath });
 
   /* Extract env object based on args */
   const envFromArgs = ARGS._all.env; // eslint-disable-line
