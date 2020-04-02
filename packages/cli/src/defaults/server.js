@@ -58,15 +58,15 @@ module.exports = (constants) => {
               loader: 'css-loader/locals',
               options: css,
             },
-            {
+            Object.prototype.toString.apply(postcss) === '[object Object]' ? {
               loader: 'postcss-loader',
               options: postcss,
-            },
+            } : undefined,
             {
               loader: 'sass-loader',
               options: scss,
             },
-          ],
+          ].filter(Boolean),
         },
         {
           test: /\.css$/,
@@ -76,11 +76,11 @@ module.exports = (constants) => {
               loader: 'css-loader/locals',
               options: css,
             },
-            {
+            Object.prototype.toString.apply(postcss) === '[object Object]' ? {
               loader: 'postcss-loader',
               options: postcss,
-            },
-          ],
+            } : undefined,
+          ].filter(Boolean),
         },
         {
           test: /\.(css)$/,
@@ -90,11 +90,11 @@ module.exports = (constants) => {
               loader: 'css-loader/locals',
               options: cssNodeModules,
             },
-            {
+            Object.prototype.toString.apply(postcssNodeModules) === '[object Object]' ? {
               loader: 'postcss-loader',
               options: postcssNodeModules,
-            },
-          ],
+            } : undefined,
+          ].filter(Boolean),
         },
       ],
     },

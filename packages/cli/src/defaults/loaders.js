@@ -13,11 +13,6 @@ module.exports = ({
     minimize: process.env.NODE_ENV === 'production',
   },
   cssNodeModules: { minimize: process.env.NODE_ENV === 'production' },
-  postcss: {
-    sourceMap: process.env.NODE_ENV !== 'production',
-    options: {},
-  },
-  postcssNodeModules: { options: {} },
   scss: {
     includePaths: [
       styles,
