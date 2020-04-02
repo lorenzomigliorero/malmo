@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.1](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.6.0...malmo@2.6.1) (2020-04-02)
+
+
+### Bug Fixes
+
+* **express:** replace getMergedConfig with importFresh ([461733a](https://github.com/lorenzomigliorero/malmo/commit/461733aefb5d8606a2757eeb7074b11a070e3b64))
+
+
+
+
+
 # [2.6.0](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.5.3...malmo@2.6.0) (2020-04-02)
 
 
