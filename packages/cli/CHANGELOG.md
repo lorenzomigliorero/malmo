@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.5.3...malmo@2.6.0) (2020-04-02)
+
+
+### Bug Fixes
+
+* **resolve-loader:** fix modules folder order ([2c2ae1f](https://github.com/lorenzomigliorero/malmo/commit/2c2ae1f2a986c06aa2942aa7d37a28c6d20dfe56))
+
+
+### Features
+
+* **postcss:** conditionally add postcss loader ([78dde05](https://github.com/lorenzomigliorero/malmo/commit/78dde0550f97e7fb89b51a95c122d4230ea2065f))
+
+
+
+
+
 ## [2.5.3](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.5.2...malmo@2.5.3) (2020-03-05)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli-utils@1.6.0...@malmo/cli-utils@1.7.0) (2020-04-02)
+
+
+### Features
+
+* **configuration:** add typecheck control for require configuration as plain object with a custom m ([da2056a](https://github.com/lorenzomigliorero/malmo/commit/da2056a3e0a78bb857eebd5dc79d4da32b42e98c))
+
+
+
+
+
 # [1.6.0](https://github.com/lorenzomigliorero/malmo/compare/@malmo/cli-utils@1.5.0...@malmo/cli-utils@1.6.0) (2020-02-28)
 
 
