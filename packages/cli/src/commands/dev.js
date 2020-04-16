@@ -1,4 +1,6 @@
 const express = require('express');
+const fs = require('fs');
+const httpsModule = require('https');
 const { openBrowser, importFresh } = require('@malmo/cli-utils');
 const { preServerRender, postServerRender } = require('../middleware');
 
@@ -11,6 +13,7 @@ module.exports = async () => {
     port,
     root,
     projectType,
+    https,
     expressConfigPath,
     ...customConstants
   } = configuration;
@@ -38,6 +41,13 @@ module.exports = async () => {
   app.use(router);
 
   app = postServerRender(app);
+
+  if (process.env.HTTPS) {
+    app = httpsModule.createServer({
+      key: fs.readFileSync(https.key),
+      cert: fs.readFileSync(https.cert),
+    }, app);
+  }
 
   const appInstance = await app.listen(port, openBrowser.bind(null, root));
 

@@ -40,6 +40,7 @@ module.exports = () => {
     port: PORT,
     root: '',
     staticFolder: '',
+    https: {},
   };
 
   /* Resolve configuration fileNames */
@@ -93,6 +94,13 @@ module.exports = () => {
     webpackConfig: constants.getWebpackConfig(),
   });
 
+  if (
+    fs.existsSync(constants.https.key)
+    && fs.existsSync(constants.https.cert)
+  ) {
+    process.env.HTTPS = true;
+  }
+
   /* End constants merge, init normalization */
   if (constants.projectType === 'ssr') {
     Object.assign(constants, {
@@ -131,9 +139,9 @@ module.exports = () => {
     htmlIndex: fs.existsSync(path.resolve(constants.src, 'index.html'))
       ? path.resolve(constants.src, 'index.html')
       : undefined,
-    root: constants.root || `http://${IP}:${constants.port}`,
+    root: constants.root || `${process.env.HTTPS ? 'https' : 'http'}://${IP}:${constants.port}`,
     /* publicPath will be prepended on every required assets, example: /{publicPath}/main.js */
-    publicPath: NODE_ENV === 'development' ? `http://${IP}:${constants.port}/` : constants.publicPath,
+    publicPath: NODE_ENV === 'development' ? `//${IP}:${constants.port}/` : constants.publicPath,
   });
 
   /* Require other configurations */
