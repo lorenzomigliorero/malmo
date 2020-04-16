@@ -21,16 +21,6 @@ describe('Normalize public path', () => {
       { publicPath: 'foo/bar/' },
       { publicPath: 'foo//bar/' },
     ].forEach((mockConfig) => {
-      if (NODE_ENV === 'development') {
-        it('Starts with protocol', () => {
-          require('fs').createMockFiles({ [CONFIG_PATH]: mockConfig });
-          jest.mock(CONFIG_PATH, () => () => mockConfig, { virtual: true });
-
-          process.env.NODE_ENV = NODE_ENV;
-          const { publicPath } = require('../src/modules/configuration')();
-          expect(publicPath).toEqual(expect.stringMatching(/^[a-z0-9]+:\/\//));
-        });
-      }
       if (NODE_ENV === 'production') {
         it('Not contains //', () => {
           require('fs').createMockFiles({ [CONFIG_PATH]: mockConfig });
