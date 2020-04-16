@@ -1,6 +1,6 @@
 {
   "name": "malmo",
-  "version": "2.6.1",
+  "version": "2.7.0",
   "description": "A cli interface to build Javascript applications with zero configuration.",
   "bin": {
     "malmo": "./bin/malmo.js"

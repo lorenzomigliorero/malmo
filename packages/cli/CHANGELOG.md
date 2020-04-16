@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.6.1...malmo@2.7.0) (2020-04-16)
+
+
+### Features
+
+* **https:** add https option ([1b5fdbd](https://github.com/lorenzomigliorero/malmo/commit/1b5fdbd1a1fd4395de99a952301d95addc4980bc))
+
+
+
+
+
 ## [2.6.1](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.6.0...malmo@2.6.1) (2020-04-02)
 
 
