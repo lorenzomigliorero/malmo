@@ -140,8 +140,6 @@ module.exports = () => {
       ? path.resolve(constants.src, 'index.html')
       : undefined,
     root: constants.root || `${process.env.HTTPS ? 'https' : 'http'}://${IP}:${constants.port}`,
-    /* publicPath will be prepended on every required assets, example: /{publicPath}/main.js */
-    publicPath: NODE_ENV === 'development' ? `//${IP}:${constants.port}/` : constants.publicPath,
   });
 
   /* Require other configurations */
