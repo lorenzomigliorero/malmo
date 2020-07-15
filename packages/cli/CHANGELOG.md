@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/lorenzomigliorero/malmo/compare/malmo@3.0.0...malmo@3.0.1) (2020-07-15)
+
+
+### Bug Fixes
+
+* **css-loader:** remove deprecated options ([a26f3f1](https://github.com/lorenzomigliorero/malmo/commit/a26f3f1b1b70560f47c71031015ee7347700d492))
+
+
+
+
+
 # [3.0.0](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.7.1...malmo@3.0.0) (2020-07-15)
 
 
