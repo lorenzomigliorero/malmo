@@ -6,13 +6,12 @@ module.exports = ({
   cssHot: { reloadAll: true },
   css: {
     importLoaders: 1,
-    url: false,
     localsConvention: 'camelCase',
     onlyLocals: !!process.env.SERVER,
     sourceMap: process.env.NODE_ENV === 'development',
     modules: { localIdentName: process.env.NODE_ENV === 'development' ? '[name]__[local]' : '[hash:base64:5]' },
   },
-  cssNodeModules: { minimize: process.env.NODE_ENV === 'production' },
+  cssNodeModules: {},
   scss: {
     includePaths: [
       styles,
