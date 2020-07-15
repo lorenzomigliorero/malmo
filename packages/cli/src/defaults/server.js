@@ -55,7 +55,7 @@ module.exports = (constants) => {
           test: /\.scss$/,
           use: [
             {
-              loader: 'css-loader/locals',
+              loader: 'css-loader',
               options: css,
             },
             Object.prototype.toString.apply(postcss) === '[object Object]' ? {
@@ -73,7 +73,7 @@ module.exports = (constants) => {
           exclude: pwdNodeModules,
           use: [
             {
-              loader: 'css-loader/locals',
+              loader: 'css-loader',
               options: css,
             },
             Object.prototype.toString.apply(postcss) === '[object Object]' ? {
@@ -87,7 +87,7 @@ module.exports = (constants) => {
           include: pwdNodeModules,
           use: [
             {
-              loader: 'css-loader/locals',
+              loader: 'css-loader',
               options: cssNodeModules,
             },
             Object.prototype.toString.apply(postcssNodeModules) === '[object Object]' ? {

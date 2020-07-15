@@ -5,12 +5,12 @@ module.exports = ({
 }) => ({
   cssHot: { reloadAll: true },
   css: {
-    modules: true,
     importLoaders: 1,
-    camelCase: true,
-    localIdentName: process.env.NODE_ENV === 'development' ? '[name]__[local]' : '[hash:base64:5]',
+    url: false,
+    localsConvention: 'camelCase',
+    onlyLocals: !!process.env.SERVER,
     sourceMap: process.env.NODE_ENV === 'development',
-    minimize: process.env.NODE_ENV === 'production',
+    modules: { localIdentName: process.env.NODE_ENV === 'development' ? '[name]__[local]' : '[hash:base64:5]' },
   },
   cssNodeModules: { minimize: process.env.NODE_ENV === 'production' },
   scss: {
