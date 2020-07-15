@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.7.1...malmo@3.0.0) (2020-07-15)
+
+
+### Features
+
+* **deps:** update css-loader, postcss-loader and mini-css-extract-plugin ([f6992df](https://github.com/lorenzomigliorero/malmo/commit/f6992dfb409b899ead5c02e3132b925532aba5f7))
+
+
+### BREAKING CHANGES
+
+* **deps:** composes import syntax
+
+
+
+
+
 ## [2.7.1](https://github.com/lorenzomigliorero/malmo/compare/malmo@2.7.0...malmo@2.7.1) (2020-04-21)
 
 
