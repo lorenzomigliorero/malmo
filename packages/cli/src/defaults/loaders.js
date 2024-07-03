@@ -1,7 +1,6 @@
 module.exports = ({
   styles,
   malmoCliNodeModules,
-  NODE_MODULES,
 }) => ({
   cssHot: { reloadAll: true },
   css: {
@@ -16,7 +15,6 @@ module.exports = ({
     includePaths: [
       styles,
       malmoCliNodeModules,
-      NODE_MODULES,
     ],
     sourceMap: process.env.NODE_ENV === 'development',
   },
