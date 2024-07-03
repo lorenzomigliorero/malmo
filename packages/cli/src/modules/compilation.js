@@ -24,7 +24,7 @@ module.exports = async (config, {
     spinner.succeed();
   }
 
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     /* Create multicompiler instance */
     const multiCompiler = webpack(config);
 
@@ -103,11 +103,17 @@ module.exports = async (config, {
       /* Error handling */
       multiStats.stats.forEach(stats => multiCompilerErrorHandler(null, stats));
 
-      resolve({
-        router,
-        devMiddleware,
-        multiStats,
-      });
+      const errors = multiStats.stats.reduce((acc, {compilation}) => [...acc, ...compilation.errors], [])
+
+      if (errors.length > 0) {
+        reject()
+      } else {
+        resolve({
+          router,
+          devMiddleware,
+          multiStats,
+        });
+      }
     });
   });
 };

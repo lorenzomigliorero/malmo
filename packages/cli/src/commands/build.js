@@ -9,5 +9,10 @@ module.exports = async () => {
     defaults.push(require('../defaults/server')(configuration));
   }
 
-  await require('../modules/compilation')(defaults, configuration);
+  try {
+    await require('../modules/compilation')(defaults, configuration);
+  } catch(e) {
+    console.error(e)
+    process.exit(1)
+  }
 };
