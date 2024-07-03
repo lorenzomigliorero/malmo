@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/lorenzomigliorero/malmo/compare/malmo@3.0.1...malmo@3.0.2) (2024-07-03)
+
+
+### Bug Fixes
+
+* **node-sass:** remove node-sass pkg ([7de05e3](https://github.com/lorenzomigliorero/malmo/commit/7de05e395a9a4bd4eb9e10e5e4b50fa13f49f923))
+
+
+
+
+
 ## [3.0.1](https://github.com/lorenzomigliorero/malmo/compare/malmo@3.0.0...malmo@3.0.1) (2020-07-15)
 
 

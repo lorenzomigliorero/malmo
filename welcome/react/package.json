@@ -1,6 +1,6 @@
 {
   "name": "@malmo/welcome-react",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A presentational component for @malmo React Starter Kits",
   "main": "index.jsx",
   "author": "Lorenzo Migliorero <lorenzomigliorero@gmail.com>",
