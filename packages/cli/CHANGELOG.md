@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/lorenzomigliorero/malmo/compare/malmo@3.0.1...malmo@3.1.0) (2024-07-03)
+
+
+### Features
+
+* **errors:** process exit 1 in case of errors ([5a7787f](https://github.com/lorenzomigliorero/malmo/commit/5a7787f0bf213282a9c0b2cad28f2ac68903dac7))
+* **sass:** use sass for node 16 support ([fa5782e](https://github.com/lorenzomigliorero/malmo/commit/fa5782e6488eb9dc27f89bbce16418090c3943f6))
+
+
+
+
+
 ## [3.0.1](https://github.com/lorenzomigliorero/malmo/compare/malmo@3.0.0...malmo@3.0.1) (2020-07-15)
 
 

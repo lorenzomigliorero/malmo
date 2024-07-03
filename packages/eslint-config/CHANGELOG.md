@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/lorenzomigliorero/malmo/compare/@malmo/eslint-config@1.0.9...@malmo/eslint-config@1.1.0) (2024-07-03)
+
+
+### Features
+
+* **sass:** use sass for node 16 support ([fa5782e](https://github.com/lorenzomigliorero/malmo/commit/fa5782e6488eb9dc27f89bbce16418090c3943f6))
+
+
+
+
+
 ## [1.0.9](https://github.com/lorenzomigliorero/malmo/compare/@malmo/eslint-config@1.0.8...@malmo/eslint-config@1.0.9) (2020-02-28)
 
 

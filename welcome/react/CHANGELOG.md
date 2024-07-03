@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/lorenzomigliorero/malmo/compare/@malmo/welcome-react@1.0.3...@malmo/welcome-react@1.0.4) (2024-07-03)
+
+
+### Bug Fixes
+
+* **styles:** use css modules ([41d1613](https://github.com/lorenzomigliorero/malmo/commit/41d1613d116ff94c1ed18f88cdbf5c4cea2e4ec9))
+
+
+
+
+
 ## [1.0.3](https://github.com/lorenzomigliorero/malmo/compare/@malmo/welcome-react@1.0.2...@malmo/welcome-react@1.0.3) (2020-02-28)
 
 
