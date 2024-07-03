@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '@malmo/welcome-styles';
+import styles from '@malmo/welcome-styles';
 
 const Welcome = ({
   logo,
@@ -8,10 +8,10 @@ const Welcome = ({
   dependencies,
   children,
 }) => (
-  <section className="welcome__wrapper">
-    <div className="welcome__header">
+  <section className={styles.welcomeWrapper}>
+    <div className={styles.welcomeHeader}>
       <img
-        className="welcome__logo"
+        className={styles.welcomeLogo}
         alt=""
         width={300}
         src={logo}
@@ -21,32 +21,32 @@ const Welcome = ({
       </h1>
     </div>
     {children && (
-      <div className="welcome__children welcome__boxed">
+      <div className={[styles.welcomeChildren, styles.welcomeBoxed].join(" ")}>
         {children}
       </div>
     )}
     <h2>
       Main dependencies:
     </h2>
-    <pre className="welcome__boxed">
+    <pre className={styles.welcomeBoxed}>
       {JSON.stringify(dependencies, null, 4)}
     </pre>
     <h2>
       Launch development server:
     </h2>
-    <pre className="welcome__boxed">
+    <pre className={styles.welcomeBoxed}>
       malmo dev
     </pre>
     <h2>
       Build project:
     </h2>
-    <pre className="welcome__boxed">
+    <pre className={styles.welcomeBoxed}>
       malmo build
     </pre>
     <h2>
       Build project using custom env:
     </h2>
-    <pre className="welcome__boxed">
+    <pre className={styles.welcomeBoxed}>
       malmo build --env=staging
     </pre>
   </section>
